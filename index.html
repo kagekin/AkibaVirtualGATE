@@ -33,7 +33,7 @@
             font-family: 'Orbitron', sans-serif;
         }
         .hero-section {
-            background-color: #000; /* Fallback for image */
+            background-color: #5e17eb; /* Fallback for image */
             position: relative;
         }
         .hero-overlay {
@@ -74,6 +74,16 @@
             object-position: center bottom; /* Align image to the bottom of its container */
         }
         
+        /* Share Button */
+        .diamond-button {
+            width: 90px;
+            height: 90px;
+            transform: rotate(45deg);
+        }
+        .diamond-button-content {
+            transform: rotate(-45deg);
+        }
+
         /* Glitch/Noise Overlay Effect */
         .noise-overlay {
             position: fixed;
@@ -108,14 +118,17 @@
     <div class="noise-overlay"></div>
 
     <!-- X Share Button -->
-    <a id="x-share-button" href="#" target="_blank" rel="noopener noreferrer" class="fixed top-1/2 right-4 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-colors duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z"/></svg>
+    <a id="x-share-button" href="#" target="_blank" rel="noopener noreferrer" class="diamond-button fixed top-1/2 right-6 -translate-y-1/2 z-50 bg-black text-white p-3 shadow-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center">
+        <div class="diamond-button-content text-center font-orbitron">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z"/></svg>
+            <span class="text-xs font-bold block mt-1">SHARE</span>
+        </div>
     </a>
 
     <!-- Header Section -->
     <header class="hero-section relative w-full aspect-video md:h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div class="hero-overlay"></div>
-        <img src="https://akibavgate.kagekin.com/gateimg.png" alt="AKIBA VIRTUAL GATE Key Visual" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0">
+        <img src="https://akibavgate.kagekin.com/img/gateimg.png" alt="AKIBA VIRTUAL GATE Key Visual" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0">
     </header>
 
     <main class="py-12 md:py-20">
@@ -125,7 +138,7 @@
             <section id="about" class="mb-16 md:mb-24">
                 <div class="card p-6 md:p-10 rounded-xl">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">AKIBA V GATE</span>?</h2>
-                    <img src="https://placehold.co/800x400/0d0c1d/a855f7?text=GATE+CONCEPT" alt="AKIBA V GATE Concept Image" class="w-full h-auto rounded-lg mb-8">
+                    <img src="https://akibavgate.kagekin.com/img/about-gate.jpg" alt="AKIBA V GATE Concept Image" class="w-full h-auto rounded-lg mb-8">
                     <div class="max-w-3xl mx-auto text-center">
                         <p class="text-base md:text-lg leading-relaxed mb-4">
                             「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
@@ -141,7 +154,7 @@
             <section id="polidscreen" class="mb-16 md:mb-24">
                 <div class="card p-6 md:p-10 rounded-xl">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">POLID SCREEN</span>?</h2>
-                    <img src="https://placehold.co/800x400/0d0c1d/a855f7?text=POLID+SCREEN" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
+                    <img src="https://akibavgate.kagekin.com/img/about-polidscreen.jpg" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
                     <div class="max-w-3xl mx-auto text-center">
                         <p class="text-base md:text-lg leading-relaxed">
                             ポリッドスクリーンは、特殊な透明フィルムに映像を投影することで、まるでキャラクターがその場に実在するかのような立体的な映像を映し出すことができる技術です。本イベントではこの技術を使い、低コストでリアルとバーチャルが繋がる新しい体験の可能性を探ります。
@@ -171,17 +184,17 @@
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
                 <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="card p-6 rounded-xl">
-                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=V-GATE+EXP" alt="バーチャルゲート体験イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <img src="https://akibavgate.kagekin.com/img/content-experience.jpg" alt="バーチャルゲート体験イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
                         <p>ポリッドスクリーンを通してVTuberやバーチャルアイドルとリアルタイムで交流！自分のアバターでイベントに参加できる体験ブースも設置予定。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
-                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=SCREENING" alt="映像作品上映会イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <img src="https://akibavgate.kagekin.com/img/content-screening.jpg" alt="映像作品上映会イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">映像作品上映会</h3>
                         <p>AIやメタバース技術を駆使して制作された映像作品を公募し、大画面で上映。新進気鋭のクリエイターによる最先端の表現に触れるチャンス。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
-                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=TECH+DEMO" alt="技術展示イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <img src="https://akibavgate.kagekin.com/img/content-tech.jpg" alt="技術展示イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">技術展示</h3>
                         <p>本イベントの核となるポリッドスクリーンの技術紹介と実演。低コストでバーチャル存在を「召喚」するノウハウを間近で見ることができます。</p>
                     </div>
@@ -210,7 +223,7 @@
                 
                 <!-- Yoshida Profile -->
                 <div class="card profile-yoshida grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
-                    <img src="https://placehold.co/600x600/a855f7/ffffff?text=Yoshida" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg">
+                    <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg">
                     <div class="text-center md:text-left">
                         <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">バーチャルマンチカンよしだ</h3>
                         <p class="text-lg leading-relaxed">よしだはふわふわなねこだよ！<br>みんなとなかよくなりたいな！</p>
@@ -226,7 +239,16 @@
                             X (Twitter)
                         </a>
                     </div>
-                    <img src="https://placehold.co/600x600/a855f7/ffffff?text=Furuga" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg order-1 md:order-2">
+                    <img src="https://akibavgate.kagekin.com/img/cast-furuga.png" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg order-1 md:order-2">
+                </div>
+                
+                <!-- Mystery Artist Profile -->
+                <div class="card profile-mystery grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
+                    <img src="https://akibavgate.kagekin.com/img/cast-mystery.png" alt="Mystery Artist" class="w-full h-auto rounded-lg shadow-lg">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">？？？？</h3>
+                        <p class="text-lg leading-relaxed">詳細は後日発表！<br>続報を待て！</p>
+                    </div>
                 </div>
 
                 <!-- Public Call Section -->
@@ -272,7 +294,7 @@
             <p class="font-orbitron text-lg mb-2">AKIBA VIRTUAL GATE</p>
             <p>主催: 株式会社インベーダーズ</p>
             <p>協力: AiHUB株式会社</p>
-            <p class="mt-4 text-sm">&copy; 2025 AKIBA VIRTUAL GATE Project. All rights reserved.</p>
+            <p class="mt-4 text-sm">&copy; 2025 AKBA VIRTUAL GATE Project. All rights reserved.</p>
         </div>
     </footer>
 
@@ -290,7 +312,7 @@
             });
 
             // --- Scroll Animations for general Cards ---
-            const cards = gsap.utils.toArray('.card:not(.profile-yoshida):not(.profile-furuga)');
+            const cards = gsap.utils.toArray('.card:not(.profile-yoshida):not(.profile-furuga):not(.profile-mystery)');
             cards.forEach(card => {
                 gsap.fromTo(card, 
                     { opacity: 0, y: 50 },
@@ -335,6 +357,22 @@
                     ease: 'back.out(1.4)',
                     scrollTrigger: {
                         trigger: '.profile-furuga',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                }
+            );
+
+            gsap.fromTo('.profile-mystery', 
+                { opacity: 0, x: -150, y: 50 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    duration: 1,
+                    ease: 'back.out(1.4)',
+                    scrollTrigger: {
+                        trigger: '.profile-mystery',
                         start: 'top 85%',
                         toggleActions: 'play none none none',
                     },
