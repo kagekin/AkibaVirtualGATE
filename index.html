@@ -57,6 +57,23 @@
             opacity: 0;
             transform: translateY(50px);
         }
+        /* Parallax Cast Section */
+        #cast-parallax-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .parallax-layer {
+            position: absolute;
+            top: -20%; /* Give more space at the top */
+            left: 0;
+            width: 100%;
+            height: 140%; /* Give more space for movement */
+            object-fit: contain;
+            object-position: center bottom; /* Align image to the bottom of its container */
+        }
+        
         /* Glitch/Noise Overlay Effect */
         .noise-overlay {
             position: fixed;
@@ -90,26 +107,46 @@
 <body class="bg-gray-900 text-white">
     <div class="noise-overlay"></div>
 
+    <!-- X Share Button -->
+    <a id="x-share-button" href="#" target="_blank" rel="noopener noreferrer" class="fixed top-1/2 right-4 -translate-y-1/2 z-50 bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-colors duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z"/></svg>
+    </a>
+
     <!-- Header Section -->
     <header class="hero-section relative w-full aspect-video md:h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div class="hero-overlay"></div>
-        <!-- The new header image that includes text -->
         <img src="https://akibavgate.kagekin.com/gateimg.png" alt="AKIBA VIRTUAL GATE Key Visual" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0">
     </header>
 
-    <main class="py-12 md:py-20 px-4">
-        <div class="max-w-5xl mx-auto">
+    <main class="py-12 md:py-20">
+        <div class="max-w-5xl mx-auto px-4">
 
             <!-- About Section -->
             <section id="about" class="mb-16 md:mb-24">
                 <div class="card p-6 md:p-10 rounded-xl">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400">WHAT IS <span class="neon-text">AKIBA V GATE</span>?</h2>
-                    <p class="text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto mb-4">
-                        「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
-                    </p>
-                    <p class="text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto">
-                        VTuberライブ、AI・メタバース作品上映、遠隔出演などを、低コストでの再現性を重視した<span class="text-cyan-400 font-bold">公開実験</span>として開催。バーチャルがもっと身近になる未来の可能性を、ここ秋葉原で探ります。
-                    </p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">AKIBA V GATE</span>?</h2>
+                    <img src="https://placehold.co/800x400/0d0c1d/a855f7?text=GATE+CONCEPT" alt="AKIBA V GATE Concept Image" class="w-full h-auto rounded-lg mb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <p class="text-base md:text-lg leading-relaxed mb-4">
+                            「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
+                        </p>
+                        <p class="text-base md:text-lg leading-relaxed">
+                            VTuberライブ、AI・メタバース作品上映、遠隔出演などを、低コストでの再現性を重視した<span class="text-cyan-400 font-bold">公開実験</span>として開催。バーチャルがもっと身近になる未来の可能性を、ここ秋葉原で探ります。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Polid Screen Section -->
+            <section id="polidscreen" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">POLID SCREEN</span>?</h2>
+                    <img src="https://placehold.co/800x400/0d0c1d/a855f7?text=POLID+SCREEN" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <p class="text-base md:text-lg leading-relaxed">
+                            ポリッドスクリーンは、特殊な透明フィルムに映像を投影することで、まるでキャラクターがその場に実在するかのような立体的な映像を映し出すことができる技術です。本イベントではこの技術を使い、低コストでリアルとバーチャルが繋がる新しい体験の可能性を探ります。
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -134,36 +171,75 @@
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
                 <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="card p-6 rounded-xl">
+                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=V-GATE+EXP" alt="バーチャルゲート体験イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
                         <p>ポリッドスクリーンを通してVTuberやバーチャルアイドルとリアルタイムで交流！自分のアバターでイベントに参加できる体験ブースも設置予定。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
+                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=SCREENING" alt="映像作品上映会イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">映像作品上映会</h3>
                         <p>AIやメタバース技術を駆使して制作された映像作品を公募し、大画面で上映。新進気鋭のクリエイターによる最先端の表現に触れるチャンス。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
+                        <img src="https://placehold.co/600x400/a855f7/ffffff?text=TECH+DEMO" alt="技術展示イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
                         <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">技術展示</h3>
-                        <p>本イベントの核となるポリッドスクリーンの技術紹介と実演。低コストでバーチャル存在を「召喚」するノハウを間近で見ることができます。</p>
+                        <p>本イベントの核となるポリッドスクリーンの技術紹介と実演。低コストでバーチャル存在を「召喚」するノウハウを間近で見ることができます。</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Cast Section -->
-            <section id="cast" class="mb-16 md:mb-24">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
-                <div class="text-center max-w-2xl mx-auto">
-                    <ul class="text-lg md:text-xl space-y-2 card p-6 rounded-xl">
-                        <li>バーチャルマンチカンよしだ</li>
-                        <li>桜兎フルガ (調整中)</li>
-                        <li>and more...</li>
-                    </ul>
-                    <div class="card p-6 rounded-xl mt-8">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-3">バーチャル住民 参加者公募！</h3>
-                        <p>録画再生またはResonite同期での参加者を募集中！詳細は後日発表！</p>
+        </div>
+
+        <!-- Cast Section -->
+        <section id="cast" class="mb-16 md:mb-24">
+            <div class="max-w-5xl mx-auto px-4">
+                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
+            </div>
+            <div id="cast-parallax-container">
+                <!-- Layers from back to front -->
+                <img id="cast06" src="https://akibavgate.kagekin.com/img/cast06.png" class="parallax-layer" style="z-index: 10;">
+                <img id="cast05" src="https://akibavgate.kagekin.com/img/cast05.png" class="parallax-layer" style="z-index: 20;">
+                <img id="cast03" src="https://akibavgate.kagekin.com/img/cast03.png" class="parallax-layer" style="z-index: 30;">
+                <img id="cast02" src="https://akibavgate.kagekin.com/img/cast02.png" class="parallax-layer" style="z-index: 40;">
+                <img id="cast04" src="https://akibavgate.kagekin.com/img/cast04.png" class="parallax-layer" style="z-index: 42;">
+                <img id="cast01" src="https://akibavgate.kagekin.com/img/cast01.png" class="parallax-layer" style="z-index: 44;">
+            </div>
+            
+            <!-- Cast Details Section -->
+            <div class="max-w-4xl mx-auto px-4 mt-12 space-y-16">
+                
+                <!-- Yoshida Profile -->
+                <div class="card profile-yoshida grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
+                    <img src="https://placehold.co/600x600/a855f7/ffffff?text=Yoshida" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">バーチャルマンチカンよしだ</h3>
+                        <p class="text-lg leading-relaxed">よしだはふわふわなねこだよ！<br>みんなとなかよくなりたいな！</p>
                     </div>
                 </div>
-            </section>
-            
+
+                <!-- Furuga Profile -->
+                <div class="card profile-furuga grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
+                    <div class="text-center md:text-right order-2 md:order-1">
+                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">桜兎フルガ</h3>
+                        <p class="text-lg leading-relaxed mb-6">ﾄﾞｰﾑを目指す永遠の17歳ﾊﾞｰﾁｬﾙｱｲﾄﾞﾙ！</p>
+                        <a href="https://x.com/oto_furuga" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
+                            X (Twitter)
+                        </a>
+                    </div>
+                    <img src="https://placehold.co/600x600/a855f7/ffffff?text=Furuga" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg order-1 md:order-2">
+                </div>
+
+                <!-- Public Call Section -->
+                <div class="text-center pt-8">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-3 font-orbitron">...and more Virtual Residents!</h3>
+                        <p class="text-lg">バーチャル住民 参加者公募！<br>録画再生またはResonite同期での参加者を募集中！詳細は後日発表！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-5xl mx-auto px-4">
             <!-- Target Section -->
             <section id="target">
                  <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">RECOMMENDED FOR</h2>
@@ -189,6 +265,7 @@
         </div>
     </main>
 
+
     <!-- Footer -->
     <footer class="py-8 bg-black bg-opacity-50 mt-16 md:mt-24">
         <div class="max-w-5xl mx-auto text-center text-gray-400 px-4">
@@ -212,21 +289,104 @@
                 ease: 'power3.out'
             });
 
-            // --- Scroll Animations ---
-            const cards = gsap.utils.toArray('.card');
+            // --- Scroll Animations for general Cards ---
+            const cards = gsap.utils.toArray('.card:not(.profile-yoshida):not(.profile-furuga)');
             cards.forEach(card => {
-                gsap.to(card, {
+                gsap.fromTo(card, 
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                        }
+                    }
+                );
+            });
+
+             // --- Specific "Jump in" animations for profile cards ---
+            gsap.fromTo('.profile-yoshida', 
+                { opacity: 0, x: -150, y: 50 },
+                {
                     opacity: 1,
+                    x: 0,
                     y: 0,
-                    duration: 0.8,
-                    ease: 'power2.out',
+                    duration: 1,
+                    ease: 'back.out(1.4)',
                     scrollTrigger: {
-                        trigger: card,
+                        trigger: '.profile-yoshida',
                         start: 'top 85%',
                         toggleActions: 'play none none none',
-                    }
+                    },
+                }
+            );
+
+            gsap.fromTo('.profile-furuga', 
+                { opacity: 0, x: 150, y: 50 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    duration: 1,
+                    ease: 'back.out(1.4)',
+                    scrollTrigger: {
+                        trigger: '.profile-furuga',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                }
+            );
+
+
+            // --- Combined Parallax for Cast Section ---
+            const parallaxContainer = document.getElementById('cast-parallax-container');
+            if (parallaxContainer) {
+                // 1. Mouse Move Parallax
+                parallaxContainer.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { offsetWidth, offsetHeight } = parallaxContainer;
+                    const x = (clientX / offsetWidth - 0.5) * 2;
+                    const y = (clientY / offsetHeight - 0.5) * 2;
+
+                    gsap.to('#cast01', { x: x * 60, y: y * 60, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast02', { x: x * 40, y: y * 40, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast03', { x: x * 30, y: y * 30, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast04', { x: x * 50, y: y * 50, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast05', { x: x * 20, y: y * 20, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast06', { x: x * 10, y: y * 10, duration: 1, ease: 'power3.out' });
                 });
-            });
+                
+                // 2. Scroll Parallax
+                const layers = gsap.utils.toArray('.parallax-layer');
+                layers.forEach(layer => {
+                    // Use zIndex to determine the depth/speed. Higher zIndex moves more.
+                    const depth = parseInt(layer.style.zIndex || 1) / 10;
+                    const movement = -(depth * 5); // Adjust this value for more/less scroll effect
+
+                    gsap.to(layer, {
+                        yPercent: movement,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: parallaxContainer,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    });
+                });
+            }
+
+
+            // --- X Share Button ---
+            const shareButton = document.getElementById('x-share-button');
+            const shareText = 'リアル×バーチャル “実験型”ハイブリッド・ショーケース「AKIBA VIRTUAL GATE」2025.10.26 開催！ #AkibaVGate';
+            const shareUrl = 'https://akibavgate.kagekin.com/';
+            const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            shareButton.href = twitterIntentUrl;
         });
     </script>
 
