@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AKIBA VIRTUAL GATE - リアル×バーチャル “実験型”ハイブリッド・ショーケース</title>
+    
+    <!-- OGP Tags -->
+    <meta property="og:title" content="AKIBA VIRTUAL GATE">
+    <meta property="og:description" content="リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akibavgate.kagekin.com/">
+    <meta property="og:image" content="https://akibavgate.kagekin.com/ogp.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AKIBA VIRTUAL GATE">
+    <meta name="twitter:description" content="リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース">
+    <meta name="twitter:image" content="https://akibavgate.kagekin.com/ogp.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,61 +33,39 @@
             font-family: 'Orbitron', sans-serif;
         }
         .hero-section {
-            background-image: url('https://storage.googleapis.com/gemini-prod-us-east1-955355552395/uploaded/AKIBA%20Virtual%20GATE%E4%BC%81%E7%94%BB%E6%9B%B8%20(1).jpg-712667db-7388-4d5b-8928-9ec08ad83bac');
-            background-size: cover;
-            background-position: center;
+            background-color: #000; /* Fallback for image */
             position: relative;
         }
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.3);
             background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 5px 5px;
             z-index: 1;
         }
-        /* Updated neon text for better readability with thicker stroke */
         .neon-text {
-            -webkit-text-stroke: 1.5px #000;
+            -webkit-text-stroke: 1px #000;
             paint-order: stroke fill;
-            text-shadow:
-                /* Glow */
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #a855f7,
-                0 0 30px #a855f7;
-        }
-        .neon-text-blue {
-             -webkit-text-stroke: 1.5px #000;
-             paint-order: stroke fill;
-             text-shadow:
-                /* Glow */
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #22d3ee,
-                0 0 30px #22d3ee;
+            text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #a855f7;
         }
         .card {
             background-color: rgba(23, 22, 42, 0.8);
             border: 1px solid #a855f7;
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
             backdrop-filter: blur(10px);
-            /* Set initial state for GSAP animation */
             opacity: 0;
             transform: translateY(50px);
         }
         /* Glitch/Noise Overlay Effect */
         .noise-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none;
             z-index: 9999;
             overflow: hidden;
         }
-        /* Noise animation */
         .noise-overlay::before {
             content: '';
             position: absolute;
@@ -86,19 +76,8 @@
             animation: noise-animation .2s infinite linear;
         }
         @keyframes noise-animation {
-            0% { transform: translate(0, 0); }
-            10% { transform: translate(-5%, -5%); }
-            20% { transform: translate(-10%, 5%); }
-            30% { transform: translate(5%, -10%); }
-            40% { transform: translate(-5%, 15%); }
-            50% { transform: translate(-10%, 5%); }
-            60% { transform: translate(15%, 0); }
-            70% { transform: translate(0, 10%); }
-            80% { transform: translate(-15%, 0); }
-            90% { transform: translate(10%, 5%); }
-            100% { transform: translate(5%, 0); }
+            from { transform: translate(0, 0); } to { transform: translate(10%, 10%); }
         }
-        /* Scanlines for CRT monitor feel */
         .noise-overlay::after {
             content: '';
             position: absolute;
@@ -112,16 +91,10 @@
     <div class="noise-overlay"></div>
 
     <!-- Header Section -->
-    <header class="hero-section relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
+    <header class="hero-section relative h-screen min-h-[500px] flex items-center justify-center text-center text-white overflow-hidden">
         <div class="hero-overlay"></div>
-        <img src="https://akibavgate.kagekin.com/gateimg.png" alt="Virtual Gate" class="gate-image absolute inset-0 w-full h-full object-contain object-center opacity-70 mix-blend-screen pointer-events-none z-10">
-        <div class="relative z-20 p-4" id="header-text">
-            <h1 id="main-title" class="text-4xl md:text-7xl font-orbitron font-bold uppercase neon-text tracking-widest">
-                AKIBA VIRTUAL GATE
-            </h1>
-            <p id="sub-title" class="mt-4 text-lg md:text-2xl neon-text-blue font-bold">リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース</p>
-            <p id="date-text" class="mt-8 text-2xl md:text-4xl font-orbitron font-bold">2025 / 10 / 26 <span class="text-purple-400">OPEN!</span></p>
-        </div>
+        <!-- The new header image that includes text -->
+        <img src="https://akibavgate.kagekin.com/gateimg.png" alt="AKIBA VIRTUAL GATE Key Visual" class="gate-image absolute inset-0 w-full h-full object-cover object-center z-0">
     </header>
 
     <main class="py-12 md:py-20 px-4">
@@ -130,7 +103,7 @@
             <!-- About Section -->
             <section id="about" class="mb-16 md:mb-24">
                 <div class="card p-6 md:p-10 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400">WHAT IS <span class="neon-text">AKIBA VIRTUAL GATE</span>?</h2>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400">WHAT IS <span class="neon-text">AKIBA V GATE</span>?</h2>
                     <p class="text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto mb-4">
                         「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
                     </p>
@@ -143,33 +116,33 @@
             <!-- Event Details -->
             <section class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24" id="details-grid">
                 <div class="card p-6 rounded-xl text-center">
-                    <h3 class="text-xl font-orbitron font-bold text-cyan-400 mb-2">DATE</h3>
-                    <p class="text-2xl font-bold">2025.10.26 (Sun)</p>
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">DATE</h3>
+                    <p class="text-xl sm:text-2xl font-bold">2025.10.26 (Sun)</p>
                 </div>
                 <div class="card p-6 rounded-xl text-center">
-                    <h3 class="text-xl font-orbitron font-bold text-cyan-400 mb-2">LOCATION</h3>
-                    <p class="text-2xl font-bold">秋葉原 AiHUBオフィス</p>
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">LOCATION</h3>
+                    <p class="text-xl sm:text-2xl font-bold">秋葉原 AiHUBオフィス</p>
                 </div>
                 <div class="card p-6 rounded-xl text-center">
-                    <h3 class="text-xl font-orbitron font-bold text-cyan-400 mb-2">PRICE</h3>
-                    <p class="text-2xl font-bold">入場無料</p>
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">PRICE</h3>
+                    <p class="text-xl sm:text-2xl font-bold">入場無料</p>
                 </div>
             </section>
 
             <!-- Contents Section -->
             <section id="contents" class="mb-16 md:mb-24">
-                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
                 <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="card p-6 rounded-xl">
-                        <h3 class="text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
                         <p>ポリッドスクリーンを通してVTuberやバーチャルアイドルとリアルタイムで交流！自分のアバターでイベントに参加できる体験ブースも設置予定。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
-                        <h3 class="text-2xl font-orbitron font-bold text-cyan-400 mb-4">映像作品上映会</h3>
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">映像作品上映会</h3>
                         <p>AIやメタバース技術を駆使して制作された映像作品を公募し、大画面で上映。新進気鋭のクリエイターによる最先端の表現に触れるチャンス。</p>
                     </div>
                     <div class="card p-6 rounded-xl">
-                        <h3 class="text-2xl font-orbitron font-bold text-cyan-400 mb-4">技術展示</h3>
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">技術展示</h3>
                         <p>本イベントの核となるポリッドスクリーンの技術紹介と実演。低コストでバーチャル存在を「召喚」するノウハウを間近で見ることができます。</p>
                     </div>
                 </div>
@@ -177,7 +150,7 @@
 
             <!-- Cast Section -->
             <section id="cast" class="mb-16 md:mb-24">
-                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
                 <div class="text-center max-w-2xl mx-auto">
                     <ul class="text-lg md:text-xl space-y-2 card p-6 rounded-xl">
                         <li>バーチャルマンチカンよしだ</li>
@@ -193,15 +166,15 @@
             
             <!-- Target Section -->
             <section id="target">
-                 <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">RECOMMENDED FOR</h2>
+                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">RECOMMENDED FOR</h2>
                  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                      <div class="card p-5 rounded-lg text-center">
                          <h3 class="text-lg font-bold text-cyan-400">クリエイター</h3>
-                         <p class="text-sm">VTuber / 3D / AI生成 / Unity / Blender</p>
+                         <p class="text-sm">VTuber / 3D / AI生成</p>
                      </div>
                       <div class="card p-5 rounded-lg text-center">
                          <h3 class="text-lg font-bold text-cyan-400">テック層</h3>
-                         <p class="text-sm">XR / 配信技術 / ガジェット / Web3</p>
+                         <p class="text-sm">XR / 配信 / ガジェット</p>
                      </div>
                       <div class="card p-5 rounded-lg text-center">
                          <h3 class="text-lg font-bold text-cyan-400">ビジネス</h3>
@@ -209,7 +182,7 @@
                      </div>
                       <div class="card p-5 rounded-lg text-center">
                          <h3 class="text-lg font-bold text-cyan-400">秋葉原好き</h3>
-                         <p class="text-sm">ライブ / 新しい体験が好き</p>
+                         <p class="text-sm">ライブ / 新しい体験</p>
                      </div>
                  </div>
             </section>
@@ -218,7 +191,7 @@
 
     <!-- Footer -->
     <footer class="py-8 bg-black bg-opacity-50 mt-16 md:mt-24">
-        <div class="max-w-5xl mx-auto text-center text-gray-400">
+        <div class="max-w-5xl mx-auto text-center text-gray-400 px-4">
             <p class="font-orbitron text-lg mb-2">AKIBA VIRTUAL GATE</p>
             <p>主催: 株式会社インベーダーズ</p>
             <p>協力: AiHUB株式会社</p>
@@ -231,24 +204,13 @@
             gsap.registerPlugin(ScrollTrigger);
 
             // --- Header Animation ---
-            const tl = gsap.timeline();
-
-            // Initial states for header text
-            gsap.set("#header-text > *", { opacity: 0, y: 30 });
-            
-            // Gate opening animation
-            tl.from('.gate-image', {
-                duration: 3,
-                scale: 0.1,
+            gsap.from('.gate-image', {
+                duration: 2.5,
+                scale: 1.2,
                 opacity: 0,
-                rotation: 540,
-                filter: 'blur(40px)',
-                ease: 'expo.out'
-            })
-            // Text fade-in, timed with the gate animation
-            .to("#main-title", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=2")
-            .to("#sub-title", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=1.5")
-            .to("#date-text", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=1");
+                filter: 'blur(20px)',
+                ease: 'power3.out'
+            });
 
             // --- Scroll Animations ---
             const cards = gsap.utils.toArray('.card');
