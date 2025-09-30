@@ -8,11 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #0d0c1d;
-            color: #e0e0e0;
+            color: #fff;
+            overflow-x: hidden;
         }
         .font-orbitron {
             font-family: 'Orbitron', sans-serif;
@@ -21,58 +24,103 @@
             background-image: url('https://storage.googleapis.com/gemini-prod-us-east1-955355552395/uploaded/AKIBA%20Virtual%20GATE%E4%BC%81%E7%94%BB%E6%9B%B8%20(1).jpg-712667db-7388-4d5b-8928-9ec08ad83bac');
             background-size: cover;
             background-position: center;
+            position: relative;
         }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 5px 5px;
+            z-index: 1;
+        }
+        /* Updated neon text for better readability with thicker stroke */
         .neon-text {
+            -webkit-text-stroke: 1.5px #000;
+            paint-order: stroke fill;
             text-shadow:
+                /* Glow */
                 0 0 5px #fff,
                 0 0 10px #fff,
-                0 0 15px #a855f7,
                 0 0 20px #a855f7,
-                0 0 25px #a855f7,
-                0 0 30px #a855f7,
-                0 0 35px #a855f7;
+                0 0 30px #a855f7;
         }
         .neon-text-blue {
+             -webkit-text-stroke: 1.5px #000;
+             paint-order: stroke fill;
              text-shadow:
+                /* Glow */
                 0 0 5px #fff,
                 0 0 10px #fff,
-                0 0 15px #22d3ee,
                 0 0 20px #22d3ee,
-                0 0 25px #22d3ee,
-                0 0 30px #22d3ee,
-                0 0 35px #22d3ee;
+                0 0 30px #22d3ee;
         }
         .card {
             background-color: rgba(23, 22, 42, 0.8);
             border: 1px solid #a855f7;
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
             backdrop-filter: blur(10px);
+            /* Set initial state for GSAP animation */
+            opacity: 0;
+            transform: translateY(50px);
         }
-        .btn-neon {
-            border: 2px solid #a855f7;
-            color: #e0e0e0;
-            background-color: transparent;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px #a855f7, inset 0 0 10px #a855f7;
+        /* Glitch/Noise Overlay Effect */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
         }
-        .btn-neon:hover {
-            background-color: #a855f7;
-            color: #0d0c1d;
-            box-shadow: 0 0 20px #a855f7;
+        /* Noise animation */
+        .noise-overlay::before {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.1;
+            animation: noise-animation .2s infinite linear;
+        }
+        @keyframes noise-animation {
+            0% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(-15%, 0); }
+            90% { transform: translate(10%, 5%); }
+            100% { transform: translate(5%, 0); }
+        }
+        /* Scanlines for CRT monitor feel */
+        .noise-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 3px, rgba(0,0,0,0.3) 4px);
         }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
+    <div class="noise-overlay"></div>
 
     <!-- Header Section -->
-    <header class="hero-section relative h-screen min-h-[500px] flex items-center justify-center text-center text-white overflow-hidden">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="relative z-10 p-4">
-            <h1 class="text-4xl md:text-7xl font-orbitron font-bold uppercase neon-text tracking-widest">
+    <header class="hero-section relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="hero-overlay"></div>
+        <img src="https://akibavgate.kagekin.com/gateimg.png" alt="Virtual Gate" class="gate-image absolute inset-0 w-full h-full object-contain object-center opacity-70 mix-blend-screen pointer-events-none z-10">
+        <div class="relative z-20 p-4" id="header-text">
+            <h1 id="main-title" class="text-4xl md:text-7xl font-orbitron font-bold uppercase neon-text tracking-widest">
                 AKIBA VIRTUAL GATE
             </h1>
-            <p class="mt-4 text-lg md:text-2xl neon-text-blue font-bold">リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース</p>
-            <p class="mt-8 text-2xl md:text-4xl font-orbitron font-bold">2025 / 10 / 26 <span class="text-purple-400">OPEN!</span></p>
+            <p id="sub-title" class="mt-4 text-lg md:text-2xl neon-text-blue font-bold">リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース</p>
+            <p id="date-text" class="mt-8 text-2xl md:text-4xl font-orbitron font-bold">2025 / 10 / 26 <span class="text-purple-400">OPEN!</span></p>
         </div>
     </header>
 
@@ -82,7 +130,7 @@
             <!-- About Section -->
             <section id="about" class="mb-16 md:mb-24">
                 <div class="card p-6 md:p-10 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400">WHAT IS <span class="neon-text">AVG</span>?</h2>
+                    <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400">WHAT IS <span class="neon-text">AKIBA VIRTUAL GATE</span>?</h2>
                     <p class="text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto mb-4">
                         「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
                     </p>
@@ -93,7 +141,7 @@
             </section>
 
             <!-- Event Details -->
-            <section class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24">
+            <section class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24" id="details-grid">
                 <div class="card p-6 rounded-xl text-center">
                     <h3 class="text-xl font-orbitron font-bold text-cyan-400 mb-2">DATE</h3>
                     <p class="text-2xl font-bold">2025.10.26 (Sun)</p>
@@ -110,7 +158,7 @@
 
             <!-- Contents Section -->
             <section id="contents" class="mb-16 md:mb-24">
-                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text">EVENT CONTENTS</h2>
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
                 <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="card p-6 rounded-xl">
                         <h3 class="text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
@@ -129,9 +177,9 @@
 
             <!-- Cast Section -->
             <section id="cast" class="mb-16 md:mb-24">
-                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text">CAST</h2>
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
                 <div class="text-center max-w-2xl mx-auto">
-                    <ul class="text-lg md:text-xl space-y-2">
+                    <ul class="text-lg md:text-xl space-y-2 card p-6 rounded-xl">
                         <li>バーチャルマンチカンよしだ</li>
                         <li>桜兎フルガ (調整中)</li>
                         <li>and more...</li>
@@ -145,7 +193,7 @@
             
             <!-- Target Section -->
             <section id="target">
-                 <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text">RECOMMENDED FOR</h2>
+                 <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">RECOMMENDED FOR</h2>
                  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                      <div class="card p-5 rounded-lg text-center">
                          <h3 class="text-lg font-bold text-cyan-400">クリエイター</h3>
@@ -172,11 +220,54 @@
     <footer class="py-8 bg-black bg-opacity-50 mt-16 md:mt-24">
         <div class="max-w-5xl mx-auto text-center text-gray-400">
             <p class="font-orbitron text-lg mb-2">AKIBA VIRTUAL GATE</p>
-            <p>主催: カゲキン | ソーシャルノバ</p>
+            <p>主催: 株式会社インベーダーズ</p>
             <p>協力: AiHUB株式会社</p>
             <p class="mt-4 text-sm">&copy; 2025 AKIBA VIRTUAL GATE Project. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- Header Animation ---
+            const tl = gsap.timeline();
+
+            // Initial states for header text
+            gsap.set("#header-text > *", { opacity: 0, y: 30 });
+            
+            // Gate opening animation
+            tl.from('.gate-image', {
+                duration: 3,
+                scale: 0.1,
+                opacity: 0,
+                rotation: 540,
+                filter: 'blur(40px)',
+                ease: 'expo.out'
+            })
+            // Text fade-in, timed with the gate animation
+            .to("#main-title", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=2")
+            .to("#sub-title", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=1.5")
+            .to("#date-text", { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }, "-=1");
+
+            // --- Scroll Animations ---
+            const cards = gsap.utils.toArray('.card');
+            cards.forEach(card => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
+
