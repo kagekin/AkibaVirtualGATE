@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AKIBA VIRTUAL GATE - リアル×バーチャル “実験型”ハイブリッド・ショーケース</title>
-    
+
     <!-- OGP Tags -->
     <meta property="og:title" content="AKIBA VIRTUAL GATE">
     <meta property="og:description" content="リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース">
@@ -31,13 +31,16 @@
             color: #fff;
             overflow-x: hidden;
         }
+
         .font-orbitron {
             font-family: 'Orbitron', sans-serif;
         }
+
         .hero-section {
             background-color: #5e17eb; /* Fallback for image */
             position: relative;
         }
+
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -46,11 +49,13 @@
             background-size: 5px 5px;
             z-index: 1;
         }
+
         .neon-text {
             -webkit-text-stroke: 1px #000;
             paint-order: stroke fill;
             text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #a855f7;
         }
+
         .card {
             background-color: rgba(23, 22, 42, 0.8);
             border: 1px solid #a855f7;
@@ -65,6 +70,7 @@
             width: 100%;
             overflow: hidden;
         }
+
         .parallax-layer {
             position: absolute;
             top: -20%; /* Give more space at the top */
@@ -74,43 +80,104 @@
             object-fit: contain;
             object-position: center bottom; /* Align image to the bottom of its container */
         }
-        
+
         /* Share Button */
         .diamond-button {
             width: 90px;
             height: 90px;
             transform: rotate(45deg);
         }
+
         .diamond-button-content {
             transform: rotate(-45deg);
+        }
+
+        /* TV Frame for Special Guests */
+        .tv-frame {
+            background: #282c34;
+            padding: 1rem;
+            border-radius: 1.5rem 1.5rem 1.5rem 1.5rem / 1rem 1rem 1rem 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        .tv-screen {
+            background: #000;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .tv-screen img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .tv-static::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39tbW1+fn5oaGgfHx9oampoampoaMg+MC56AAAAF3RSTlMAVvApAudYw+uso1Gz2NfY2dnc3d7e39/f4ARJc6AAAAKaSURBVDjLpZNLjyMhEEBJ1Yq9ff3/n/1pIt90d6k2a9s9s8xcgCLUVDMi9rDo1oY/Pjp22Lbm1T2t1Q8T9g0gokE2b1bThQ1TGAINb1Uq2cDg2BIPiTyUfMb2KyeBaHzIi82025IqTsokyRj/l2kl3wYlJ70sS1Tq3uK2ZEz0Tf9lszLwW51W4A1L15D1bT5cGy8LpCh7L4XyHgYJjFft00/iL8b38aPDdR7v052k/UUUnpdpJv0Rj3gS+h3v0k0k/gE/sD6P5gL/pS8gL/k8sE/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/g-rCjAAM/AAAABJRU5ErkJggg==');
+            opacity: 0.1;
+            animation: static-flicker 0.15s infinite;
+        }
+
+        @keyframes static-flicker {
+            0%, 100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
         }
 
         /* Glitch/Noise Overlay Effect */
         .noise-overlay {
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             z-index: 9999;
             overflow: hidden;
         }
-        .noise-overlay::before {
-            content: '';
-            position: absolute;
-            top: -100%; left: -100%;
-            width: 300%; height: 300%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.1;
-            animation: noise-animation .2s infinite linear;
-        }
+
+            .noise-overlay::before {
+                content: '';
+                position: absolute;
+                top: -100%;
+                left: -100%;
+                width: 300%;
+                height: 300%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                opacity: 0.1;
+                animation: noise-animation .2s infinite linear;
+            }
+
         @keyframes noise-animation {
-            from { transform: translate(0, 0); } to { transform: translate(10%, 10%); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(10%, 10%);
+            }
         }
+
         .noise-overlay::after {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 3px, rgba(0,0,0,0.3) 4px);
         }
     </style>
@@ -121,7 +188,7 @@
     <!-- X Share Button -->
     <a id="x-share-button" href="#" target="_blank" rel="noopener noreferrer" class="diamond-button fixed top-1/2 right-6 -translate-y-1/2 z-50 bg-black text-white p-3 shadow-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center">
         <div class="diamond-button-content text-center font-orbitron">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
             <span class="text-xs font-bold block mt-1">SHARE</span>
         </div>
     </a>
@@ -151,24 +218,11 @@
                 </div>
             </section>
 
-            <!-- Polid Screen Section -->
-            <section id="polidscreen" class="mb-16 md:mb-24">
-                <div class="card p-6 md:p-10 rounded-xl">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">POLID SCREEN</span>?</h2>
-                    <img src="https://akibavgate.kagekin.com/img/about-polidscreen.jpg" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
-                    <div class="max-w-3xl mx-auto text-center">
-                        <p class="text-base md:text-lg leading-relaxed">
-                            ポリッドスクリーンは、特殊な透明フィルムに映像を投影することで、まるでキャラクターがその場に実在するかのような立体的な映像を映し出すことができる技術です。本イベントではこの技術を使い、低コストでリアルとバーチャルが繋がる新しい体験の可能性を探ります。
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             <!-- Event Details -->
             <section class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24" id="details-grid">
                 <div class="card p-6 rounded-xl text-center">
                     <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">DATE</h3>
-                    <p class="text-xl sm:text-2xl font-bold">2025.10.26 (Sun)</p>
+                    <p class="text-xl sm:text-2d font-bold">2025.10.26 (Sun)<br>15:30 OPEN</p>
                 </div>
                 <div class="card p-6 rounded-xl text-center">
                     <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">LOCATION</h3>
@@ -214,14 +268,20 @@
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">15:30 🚪</p>
                                 <p class="mt-1 text-lg">開場</p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">16:00 🚀</p>
-                                <p class="mt-1 text-lg">開幕 / OP動画</p>
+                                <div class="mt-1 flex items-center gap-3">
+                                    <div class="flex -space-x-4">
+                                        <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="よしだ" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover z-10">
+                                        <img src="https://pbs.twimg.com/profile_images/1925594374014214148/FlRlsqGp_400x400.jpg" alt="ゆうぎり" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover">
+                                    </div>
+                                    <p class="text-lg">開幕 / オープニングパフォーマンス よしだAndゆうぎり</p>
+                                </div>
                             </div>
-                             <!-- Timeline Entry -->
-                             <div class="timeline-item relative">
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">16:10 🎤</p>
                                 <div class="mt-1 flex items-center gap-3">
@@ -229,14 +289,14 @@
                                     <p class="text-lg">桜兎フルガ パフォーマンス！ <span class="text-sm text-gray-400">(20分)</span></p>
                                 </div>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">16:30 🎬</p>
                                 <p class="mt-1 text-lg">幕間 <span class="text-sm text-gray-400">(5分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
-                             <div class="timeline-item relative">
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">16:35 🎤</p>
                                 <div class="mt-1 flex items-center gap-3">
@@ -244,37 +304,37 @@
                                     <p class="text-lg">桜葉ハグ パフォーマンス！ <span class="text-sm text-gray-400">(15分)</span></p>
                                 </div>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">16:50 ⏸️</p>
                                 <p class="mt-1 text-lg">休憩 <span class="text-sm text-gray-400">(15分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">17:05 🧑‍🚀</p>
                                 <p class="mt-1 text-lg">バーチャルゲスト出演枠 <span class="text-sm text-gray-400">(50分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">17:55 ⏸️</p>
                                 <p class="mt-1 text-lg">休憩 <span class="text-sm text-gray-400">(10分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">18:05 🤝</p>
                                 <p class="mt-1 text-lg">Resonite ドアOPEN / 歓談タイム <span class="text-sm text-gray-400">(45分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">18:50 👋</p>
                                 <p class="mt-1 text-lg">エンディング・閉幕挨拶 <span class="text-sm text-gray-400">(10分)</span></p>
                             </div>
-                             <!-- Timeline Entry -->
+                            <!-- Timeline Entry -->
                             <div class="timeline-item relative">
                                 <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
                                 <p class="font-orbitron font-bold text-cyan-400 text-xl">19:00 🏁</p>
@@ -288,9 +348,7 @@
 
         <!-- Cast Section -->
         <section id="cast" class="mb-16 md:mb-24">
-            <div class="max-w-5xl mx-auto px-4">
-                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">CAST</h2>
-            </div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400 neon-text card max-w-5xl mx-auto px-4">CAST</h2>
             <div id="cast-parallax-container" class="aspect-video md:h-screen">
                 <!-- Layers from back to front -->
                 <img id="cast06" src="https://akibavgate.kagekin.com/img/cast06.png" class="parallax-layer" style="z-index: 10;">
@@ -300,79 +358,159 @@
                 <img id="cast04" src="https://akibavgate.kagekin.com/img/cast04.png" class="parallax-layer" style="z-index: 42;">
                 <img id="cast01" src="https://akibavgate.kagekin.com/img/cast01.png" class="parallax-layer" style="z-index: 44;">
             </div>
-            
+
             <!-- Cast Details Section -->
-            <div class="max-w-4xl mx-auto px-4 mt-12 space-y-16">
-                
+            <div class="main-cast-grid-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto px-4 mt-12">
+
                 <!-- Yoshida Profile -->
-                <div class="card profile-yoshida grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
-                    <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">バーチャルマンチカンよしだ</h3>
-                        <p class="text-lg leading-relaxed">よしだはふわふわなねこだよ！<br>みんなとなかよくなりたいな！</p>
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">バーチャルマンチカンよしだ</h3>
+                    <p class="text-sm leading-relaxed flex-grow">よしだはふわふわなねこだよ！<br>みんなとなかよくなりたいな！</p>
+                </div>
+
+                <!-- Yugiri Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-yugiri.png" alt="ゆうぎり" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">ゆうぎり</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">バーチャル花魁・よしだの保護者</p>
+                    <div class="flex gap-2 justify-center mt-auto">
+                        <a href="https://x.com/oiran_yugiri" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">X</a>
+                        <a href="https://www.youtube.com/@oiran_yugiri/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600/80 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">YouTube</a>
                     </div>
                 </div>
 
                 <!-- Furuga Profile -->
-                <div class="card profile-furuga grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
-                    <div class="text-center md:text-right order-2 md:order-1">
-                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">桜兎フルガ</h3>
-                        <p class="text-lg leading-relaxed mb-6">ﾄﾞｰﾑを目指す永遠の17歳ﾊﾞｰﾁｬﾙｱｲﾄﾞﾙ！</p>
-                        <a href="https://x.com/oto_furuga" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-                            X (Twitter)
-                        </a>
-                    </div>
-                    <img src="https://akibavgate.kagekin.com/img/cast-furuga.png" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg order-1 md:order-2">
-                </div>
-                
-                <!-- Hagu Artist Profile -->
-                <div class="card profile-hagu grid md:grid-cols-2 gap-8 items-center p-8 rounded-xl">
-                    <img src="https://akibavgate.kagekin.com/img/cast-hagu.png" alt="桜葉ハグ" class="w-full h-auto rounded-lg shadow-lg">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl sm:text-3xl font-orbitron font-bold text-white mb-4">桜葉ハグ</h3>
-                        <p class="text-lg leading-relaxed mb-6">テレビ朝日公式Vtuber！</p>
-                        <div class="flex gap-4 justify-center md:justify-start">
-                             <a href="https://x.com/sakuraba_hug" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-                                X (Twitter)
-                            </a>
-                            <a href="https://www.youtube.com/@hugoodtime" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-                                YouTube
-                            </a>
-                        </div>
-                    </div>
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-furuga.png" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">桜兎フルガ</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">ﾄﾞｰﾑを目指す永遠の17歳ﾊﾞｰﾁｬﾙｱｲﾄﾞﾙ！</p>
+                    <a href="https://x.com/oto_furuga" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors mt-auto">X</a>
                 </div>
 
-                <!-- Public Call Section -->
-                <div class="text-center pt-8">
-                    <div class="card p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold text-cyan-400 mb-3 font-orbitron">...and more Virtual Residents!</h3>
-                        <p class="text-lg">バーチャル住民 参加者公募！<br>録画再生またはResonite同期での参加者を募集中！詳細は後日発表！</p>
+                <!-- Hagu Artist Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-hagu.png" alt="桜葉ハグ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">桜葉ハグ</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">テレビ朝日公式Vtuber！</p>
+                    <div class="flex gap-2 justify-center mt-auto">
+                        <a href="https://x.com/sakuraba_hug" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">X</a>
+                        <a href="https://www.youtube.com/@hugoodtime" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600/80 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">YouTube</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <div class="max-w-5xl mx-auto px-4">
-             <!-- STAFF Section -->
-             <section id="staff" class="mb-16 md:mb-24">
+            <!-- Special Guest Section -->
+            <section id="special-guest" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-4 text-purple-400 neon-text">SPECIAL GUEST</h2>
+                    <p class="text-center text-gray-300 mb-10">以下のゲストは<span class="text-cyan-400">録画での出演</span>となります。</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                        <!-- Guest 1: Mamitasu -->
+                        <div class="tv-guest-card">
+                            <div class="tv-frame">
+                                <div class="tv-screen">
+                                    <img src="https://pbs.twimg.com/profile_images/1960915901223723008/bRqp8lR3_400x400.jpg" alt="まみたす">
+                                </div>
+                            </div>
+                            <p class="text-center mt-3 font-bold">まみたす</p>
+                        </div>
+                        <!-- Guest 2: Toga Seiku -->
+                        <div class="tv-guest-card">
+                            <div class="tv-frame">
+                                <div class="tv-screen">
+                                    <img src="https://pbs.twimg.com/profile_images/1641824202352381953/zcI9LtCG_400x400.jpg" alt="利賀セイク">
+                                </div>
+                            </div>
+                            <p class="text-center mt-3 font-bold">利賀セイク</p>
+                        </div>
+                        <!-- Guest 3: Peruki Gyanpark -->
+                        <div class="tv-guest-card">
+                            <div class="tv-frame">
+                                <div class="tv-screen">
+                                    <img src="https://pbs.twimg.com/profile_images/1792193539824631808/i4kX88h8_400x400.jpg" alt="ペルキ・ギャンパーク">
+                                </div>
+                            </div>
+                            <p class="text-center mt-3 font-bold">ペルキ・ギャンパーク</p>
+                        </div>
+                        <!-- Coming Soon Slots -->
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                        <div class="tv-guest-card"><div class="tv-frame"><div class="tv-screen tv-static"></div></div><p class="text-center mt-3 font-bold text-gray-500">COMING SOON</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Public Call Section -->
+            <section id="public-call" class="mb-16 md:mb-24">
+                <div class="text-center">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-3 font-orbitron">...and more Virtual Residents!</h3>
+                        <p class="text-lg">バーチャル住民 参加者公募！<br>録画再生またはResonite同期での参加者を募集中！詳細は後日発表！</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STAFF Section -->
+            <section id="staff" class="mb-16 md:mb-24">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">制作スタッフ一覧</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="card p-4 rounded-xl text-center">
-                        <p class="font-orbitron font-bold text-cyan-400 text-lg">KAGEKIN</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                    <!-- KAGEKIN -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1905651963158835200/M06q-esr_400x400.jpg" alt="KAGEKIN" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">KAGEKIN</p>
+                        <a href="https://x.com/kgkn42" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
                     </div>
-                    <div class="card p-4 rounded-xl text-center">
-                        <p class="font-orbitron font-bold text-cyan-400 text-lg">りこち</p>
+                    <!-- りこち -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1656945540184313858/68mAuetW_400x400.jpg" alt="りこち" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">りこち</p>
+                        <a href="https://x.com/RicochChester" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
                     </div>
-                    <div class="card p-4 rounded-xl text-center">
-                         <p class="font-orbitron font-bold text-cyan-400 text-lg">うしくん</p>
+                    <!-- うしくん -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1759177303157051392/SZAe49Vg_400x400.jpg" alt="うしくん" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">うしくん</p>
+                        <a href="https://x.com/Ushikun_desu" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
                     </div>
-                    <div class="card p-4 rounded-xl text-center">
-                        <p class="font-orbitron font-bold text-cyan-400 text-lg">利賀セイク</p>
+                    <!-- 利賀セイク -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1641824202352381953/zcI9LtCG_400x400.jpg" alt="利賀セイク" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">利賀セイク</p>
+                        <a href="https://x.com/sec_thugua" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
                     </div>
-                    <div class="card p-4 rounded-xl text-center">
-                        <p class="font-orbitron font-bold text-cyan-400 text-lg">まみたす</p>
+                    <!-- まみたす -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1960915901223723008/bRqp8lR3_400x400.jpg" alt="まみたす" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">まみたす</p>
+                        <a href="https://x.com/mmts_vliver" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
                     </div>
-                     <div class="card p-4 rounded-xl text-center">
+                    <!-- ナオト -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1595059320613666818/8sXOHHQR_400x400.jpg" alt="ナオト" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">ナオト</p>
+                        <a href="https://x.com/naoto_4179_" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- and more -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center justify-center">
                         <p class="font-orbitron font-bold text-gray-500 text-lg">and more...</p>
                     </div>
                 </div>
@@ -387,14 +525,26 @@
                         <p class="text-base md:text-lg mt-2">〒101-0041 東京都千代田区神田須田町２丁目１−１<br>Ma Square Akihabara, 4F</p>
                     </div>
                     <div class="rounded-lg overflow-hidden border-2 border-purple-500 shadow-lg">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.245831911953!2d139.7712613152591!3d35.69557498019102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188fee43355555%3A0x8085a9d2b272583a!2sMA%2SQUARE%2OAKIHABARA!5e0!3m2!1sja!2sjp!4v1696105555123!5m2!1sja!2sjp" 
-                            class="w-full h-80 md:h-96"
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.245831911953!2d139.7712613152591!3d35.69557498019102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188fee43355555%3A0x8085a9d2b272583a!2sMA%2SQUARE%2OAKIHABARA!5e0!3m2!1sja!2sjp!4v1696105555123!5m2!1sja!2sjp"
+                                class="w-full h-80 md:h-96"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Polid Screen Section -->
+            <section id="polidscreen" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">POLID SCREEN</span>?</h2>
+                    <img src="https://akibavgate.kagekin.com/img/about-polidscreen.jpg" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <p class="text-base md:text-lg leading-relaxed">
+                            ポリッドスクリーンは、特殊な透明フィルムに映像を投影することで、まるでキャラクターがその場に実在するかのような立体的な映像を映し出すことができる技術です。本イベントではこの技術を使い、低コストでリアルとバーチャルが繋がる新しい体験の可能性を探ります。
+                        </p>
                     </div>
                 </div>
             </section>
@@ -426,9 +576,9 @@
             });
 
             // --- Scroll Animations for general Cards ---
-            const cards = gsap.utils.toArray('.card:not(.profile-yoshida):not(.profile-furuga):not(.profile-hagu):not(#timetable .card)');
+            const cards = gsap.utils.toArray('.card:not(.main-cast-card):not(.tv-guest-card):not(#timetable .card)');
             cards.forEach(card => {
-                gsap.fromTo(card, 
+                gsap.fromTo(card,
                     { opacity: 0, y: 50 },
                     {
                         opacity: 1,
@@ -443,7 +593,7 @@
                     }
                 );
             });
-            
+
             // --- Timetable Animation ---
             const timetableCard = document.querySelector('#timetable .card');
             gsap.fromTo(timetableCard,
@@ -458,14 +608,14 @@
                         start: 'top 85%',
                         toggleActions: 'play none none none',
                         onEnter: () => {
-                            gsap.fromTo('.timeline-item', 
+                            gsap.fromTo('.timeline-item',
                                 { opacity: 0, x: -30 },
-                                { 
-                                    opacity: 1, 
-                                    x: 0, 
-                                    duration: 0.5, 
-                                    stagger: 0.1, 
-                                    ease: 'power2.out' 
+                                {
+                                    opacity: 1,
+                                    x: 0,
+                                    duration: 0.5,
+                                    stagger: 0.1,
+                                    ease: 'power2.out'
                                 }
                             );
                         },
@@ -474,53 +624,41 @@
                 }
             );
 
-
-             // --- Specific "Jump in" animations for profile cards ---
-            gsap.fromTo('.profile-yoshida', 
-                { opacity: 0, x: -150, y: 50 },
+            // --- Main Cast Animation ---
+            const mainCastCards = gsap.utils.toArray('.main-cast-card');
+            gsap.fromTo(mainCastCards,
+                { opacity: 0, y: 50, scale: 0.9 },
                 {
                     opacity: 1,
-                    x: 0,
                     y: 0,
-                    duration: 1,
-                    ease: 'back.out(1.4)',
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    stagger: 0.1,
                     scrollTrigger: {
-                        trigger: '.profile-yoshida',
+                        trigger: '.main-cast-grid-container',
                         start: 'top 85%',
                         toggleActions: 'play none none none',
-                    },
+                    }
                 }
             );
 
-            gsap.fromTo('.profile-furuga', 
-                { opacity: 0, x: 150, y: 50 },
+            // --- Special Guest TV Animation ---
+            const tvCards = gsap.utils.toArray('.tv-guest-card');
+            gsap.fromTo(tvCards,
+                { opacity: 0, y: 50, scale: 0.9 },
                 {
                     opacity: 1,
-                    x: 0,
                     y: 0,
-                    duration: 1,
+                    scale: 1,
+                    duration: 0.6,
                     ease: 'back.out(1.4)',
+                    stagger: 0.1,
                     scrollTrigger: {
-                        trigger: '.profile-furuga',
+                        trigger: '#special-guest',
                         start: 'top 85%',
                         toggleActions: 'play none none none',
-                    },
-                }
-            );
-
-            gsap.fromTo('.profile-hagu', 
-                { opacity: 0, x: -150, y: 50 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                    duration: 1,
-                    ease: 'back.out(1.4)',
-                    scrollTrigger: {
-                        trigger: '.profile-hagu',
-                        start: 'top 85%',
-                        toggleActions: 'play none none none',
-                    },
+                    }
                 }
             );
 
@@ -542,7 +680,7 @@
                     gsap.to('#cast05', { x: x * 20, y: y * 20, duration: 1, ease: 'power3.out' });
                     gsap.to('#cast06', { x: x * 10, y: y * 10, duration: 1, ease: 'power3.out' });
                 });
-                
+
                 // 2. Scroll Parallax
                 const layers = gsap.utils.toArray('.parallax-layer');
                 layers.forEach(layer => {
