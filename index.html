@@ -3,397 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社インベーダーズ | INVADERS Inc.</title>
+    <title>AKIBA VIRTUAL GATE - リアル×バーチャル “実験型”ハイブリッド・ショーケース</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="この地球に住む宇宙人が集まる会社。バーチャルとリアルをつなぐ、実験的クリエイティブカンパニー。">
-    <meta name="keywords" content="インベーダーズ, INVADERS, メタバース, バーチャルイベント, VTuber, クリエイティブ, 宇宙人">
-
-    <!-- OGP (Open Graph Protocol) / Twitter Card -->
-    <meta property="og:title" content="株式会社インベーダーズ | INVADERS Inc.">
-    <meta property="og:description" content="この地球に住む宇宙人が集まる会社。バーチャルとリアルをつなぐ、実験的クリエイティブカンパニー。">
+    <!-- OGP Tags -->
+    <meta property="og:title" content="AKIBA VIRTUAL GATE">
+    <meta property="og:description" content="リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://invaders.co.jp/">
-    <meta property="og:image" content="https://invaders.co.jp/ogp.png">
-    <meta property="og:site_name" content="株式会社インベーダーズ | INVADERS Inc.">
+    <meta property="og:url" content="https://akibavgate.kagekin.com/">
+    <meta property="og:image" content="https://akibavgate.kagekin.com/ogp.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="株式会社インベーダーズ | INVADERS Inc.">
-    <meta name="twitter:description" content="この地球に住む宇宙人が集まる会社。バーチャルとリアルをつなぐ、実験的クリエイティブカンパニー。">
-    <meta name="twitter:image" content="https://invaders.co.jp/ogp.png">
-    <!-- End OGP / Twitter Card -->
+    <meta name="twitter:title" content="AKIBA VIRTUAL GATE">
+    <meta name="twitter:description" content="リアル×バーチャルを接続する“実験型”ハイブリッド・ショーケース">
+    <meta name="twitter:image" content="https://akibavgate.kagekin.com/ogp.png">
+
+    <link rel="icon" href="https://akibavgate.kagekin.com/favicon.png" type="image/png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-        :root {
-            --color-bg: #03001C;
-            --color-primary: #301E67;
-            --color-secondary: #5B8FB9;
-            --color-accent: #B6EADA;
-            --glitch-color-1: #00ff00;
-            --glitch-color-2: #ff00ff;
-            --glitch-color-3: #00ffff;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--color-bg);
-            color: white;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #0d0c1d;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-        
         .font-orbitron {
             font-family: 'Orbitron', sans-serif;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, var(--glitch-color-1), var(--glitch-color-2), var(--glitch-color-3));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: hue-rotate 5s infinite linear;
-        }
-
-        @keyframes hue-rotate {
-            from { filter: hue-rotate(0deg); }
-            to { filter: hue-rotate(360deg); }
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero {
+        .hero-section {
+            background-color: #5e17eb; /* Fallback for image */
             position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
         }
 
-        #bg-canvas {
+        .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 5px 5px;
             z-index: 1;
         }
 
-        .glitch {
-            position: relative;
-            /* font-size: 5rem; */ /* <- Removed */
-            /* md:font-size: 6rem; */ /* <- Removed */
-            font-weight: 900;
-            color: white;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+        .neon-text {
+            -webkit-text-stroke: 1px #000;
+            paint-order: stroke fill;
+            text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #a855f7;
         }
 
-        .glitch:before,
-        .glitch:after {
-            content: attr(data-text);
+        .card {
+            background-color: rgba(23, 22, 42, 0.8);
+            border: 1px solid #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        /* Parallax Cast Section */
+        #cast-parallax-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: -20%; /* Give more space at the top */
+            left: 0;
+            width: 100%;
+            height: 140%; /* Give more space for movement */
+            object-fit: contain;
+            object-position: center bottom; /* Align image to the bottom of its container */
+        }
+
+        /* Share Button */
+        .diamond-button {
+            width: 90px;
+            height: 90px;
+            transform: rotate(45deg);
+        }
+
+        .diamond-button-content {
+            transform: rotate(-45deg);
+        }
+
+        /* TV Frame for Special Guests */
+        .tv-frame {
+            background: #282c34;
+            padding: 1rem;
+            border-radius: 1.5rem 1.5rem 1.5rem 1.5rem / 1rem 1rem 1rem 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        .tv-screen {
+            background: #000;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .tv-screen img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .tv-static::after {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--color-bg);
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39tbW1+fn5oaGgfHx9oampoampoaMg+MC56AAAAF3RSTlMAVvApAudYw+uso1Gz2NfY2dnc3d7e39/f4ARJc6AAAAKaSURBVDjLpZNLjyMhEEBJ1Yq9ff3/n/1pIt90d6k2a9s9s8xcgCLUVDMi9rDo1oY/Pjp22Lbm1T2t1Q8T9g0gokE2b1bThQ1TGAINb1Uq2cDg2BIPiTyUfMb2KyeBaHzIi82025IqTsokyRj/l2kl3wYlJ70sS1Tq3uK2ZEz0Tf9lszLwW51W4A1L15D1bT5cGy8LpCh7L4XyHgYJjFft00/iL8b38aPDdR7v052k/UUUnpdpJv0Rj3gS+h3v0k0k/gE/sD6P5gL/pS8gL/k8sE/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/gI/g-rCjAAM/AAAABJRU5ErkJggg==');
+            opacity: 0.1;
+            animation: static-flicker 0.15s infinite;
+        }
+
+        @keyframes static-flicker {
+            0%, 100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Glitch/Noise Overlay Effect */
+        .global-noise-overlay, .header-noise-overlay {
+            pointer-events: none;
             overflow: hidden;
         }
 
-        .glitch:before {
-            left: 2px;
-            text-shadow: -2px 0 var(--glitch-color-1);
-            animation: glitch-anim-1 2.5s infinite linear reverse;
-        }
-
-        .glitch:after {
-            left: -2px;
-            text-shadow: -2px 0 var(--glitch-color-2), 2px 2px var(--glitch-color-3);
-            animation: glitch-anim-2 2.5s infinite linear reverse;
-        }
-
-        @keyframes glitch-anim-1 {
-            0% { clip-path: inset(15% 0 86% 0); } 10% { clip-path: inset(29% 0 71% 0); } 20% { clip-path: inset(90% 0 5% 0); } 30% { clip-path: inset(1% 0 95% 0); } 40% { clip-path: inset(69% 0 25% 0); } 50% { clip-path: inset(45% 0 50% 0); } 60% { clip-path: inset(80% 0 10% 0); } 70% { clip-path: inset(20% 0 75% 0); } 80% { clip-path: inset(55% 0 40% 0); } 90% { clip-path: inset(35% 0 60% 0); } 100% { clip-path: inset(92% 0 2% 0); }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% { clip-path: inset(82% 0 3% 0); } 10% { clip-path: inset(33% 0 63% 0); } 20% { clip-path: inset(10% 0 85% 0); } 30% { clip-path: inset(95% 0 2% 0); } 40% { clip-path: inset(23% 0 70% 0); } 50% { clip-path: inset(50% 0 45% 0); } 60% { clip-path: inset(15% 0 80% 0); } 70% { clip-path: inset(78% 0 18% 0); } 80% { clip-path: inset(40% 0 55% 0); } 90% { clip-path: inset(65% 0 30% 0); } 100% { clip-path: inset(5% 0 90% 0); }
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
+        .global-noise-overlay {
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--glitch-color-1), var(--glitch-color-2));
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
         }
 
-        .scroll-indicator {
+        .header-noise-overlay {
             position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
+            inset: 0;
+            z-index: 2; /* Above images, below text */
+        }
+
+            .global-noise-overlay::before, .header-noise-overlay::before {
+                content: '';
+                position: absolute;
+                top: -100%;
+                left: -100%;
+                width: 300%;
+                height: 300%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                animation: noise-animation .2s infinite linear;
+            }
+
+            .global-noise-overlay::after, .header-noise-overlay::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        /* Opacity for global (thin) noise */
+        .global-noise-overlay::before {
+            opacity: 0.05;
+        }
+
+        .global-noise-overlay::after {
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
+        }
+
+        /* Opacity for header (dense) noise */
+        .header-noise-overlay::before {
+            opacity: 0.1;
+        }
+
+        .header-noise-overlay::after {
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 3px, rgba(0,0,0,0.3) 4px);
+        }
+
+        @keyframes noise-animation {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(10%, 10%);
+            }
+        }
+
+        /* Register Button Fixed */
+        .register-button-fixed-square {
+            position: fixed;
+            width: 90px;
+            height: 90px;
+            bottom: calc(50% + 90px / 2 + 1rem); /* Position above the diamond center + its height + gap */
+            right: 1.5rem; /* Corresponds to right-6 */
+            z-index: 50;
+            border-radius: 0.5rem; /* rounded-lg */
+            background: linear-gradient(90deg, #a855f7, #ec4899);
             color: white;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            box-shadow: 0 0 10px #ec4899;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.2;
         }
 
-        .scroll-indicator span {
-            display: block;
-            width: 1px;
-            height: 40px;
-            background: white;
-            margin: 10px auto 0;
-            animation: scroll-anim 2s infinite;
+            .register-button-fixed-square:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px #ec4899;
+            }
+
+        .register-button {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            border: 2px solid #ec4899;
+            box-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899;
+            transition: all 0.3s ease;
+            animation: pulse-animation 2.5s infinite;
         }
 
-        @keyframes scroll-anim {
-            0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; }
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+            .register-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px #ec4899, 0 0 30px #ec4899;
+            }
 
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+            }
 
-        .neon-btn {
-            position: relative;
-            display: inline-block;
-            padding: 1rem 2rem;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            overflow: hidden;
-            transition: 0.5s;
-            border: 2px solid var(--glitch-color-3);
-            border-radius: 0.5rem;
-        }
-        .neon-btn:hover {
-            background: var(--glitch-color-3);
-            color: var(--color-bg);
-            box-shadow: 0 0 5px var(--glitch-color-3),
-                        0 0 25px var(--glitch-color-3),
-                        0 0 50px var(--glitch-color-3),
-                        0 0 100px var(--glitch-color-3);
-        }
+            50% {
+                transform: scale(1.03);
+            }
 
-        .neon-btn-secondary {
-            border-color: var(--glitch-color-2);
+            100% {
+                transform: scale(1);
+            }
         }
-        .neon-btn-secondary:hover {
-             background: var(--glitch-color-2);
-             box-shadow: 0 0 5px var(--glitch-color-2),
-                        0 0 25px var(--glitch-color-2),
-                        0 0 50px var(--glitch-color-2),
-                        0 0 100px var(--glitch-color-2);
-        }
-
     </style>
 </head>
-<body class="bg-gray-900">
-    <!-- Header Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect">
-        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="#">
-                <!-- ロゴ画像をここに設定します。src="ここにロゴ画像のURL" のように変更してください -->
-                <img src="https://invaders.co.jp/logo_h.png" alt="INVADERS Inc. Logo" class="h-12 w-auto">
-            </a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#vision" class="hover:text-cyan-400 transition-colors">VISION</a>
-                <a href="#business" class="hover:text-cyan-400 transition-colors">BUSINESS</a>
-                <a href="#works" class="hover:text-cyan-400 transition-colors">WORKS</a>
-                <a href="#team" class="hover:text-cyan-400 transition-colors">TEAM</a>
-                <a href="#company" class="hover:text-cyan-400 transition-colors">COMPANY</a>
-                <a href="#clients" class="hover:text-cyan-400 transition-colors">CLIENTS</a>
-                <a href="https://forms.gle/XDVPJZhcB9E4mGau6" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">お問い合わせ</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+<body class="bg-gray-900 text-white">
+    <div class="global-noise-overlay"></div>
+
+    <!-- X Share Button -->
+    <a id="x-share-button" href="#" target="_blank" rel="noopener noreferrer" class="diamond-button fixed top-1/2 right-6 -translate-y-1/2 z-50 bg-black text-white p-3 shadow-lg hover:bg-gray-800 transition-all duration-300 flex items-center justify-center">
+        <div class="diamond-button-content text-center font-orbitron">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+            <span class="text-xs font-bold block mt-1">SHARE</span>
         </div>
-        <!-- Mobile Menu -->
-        <div id="menu" class="hidden md:hidden">
-             <a href="#vision" class="block py-2 px-4 text-sm hover:bg-gray-700">VISION</a>
-             <a href="#business" class="block py-2 px-4 text-sm hover:bg-gray-700">BUSINESS</a>
-             <a href="#works" class="block py-2 px-4 text-sm hover:bg-gray-700">WORKS</a>
-             <a href="#team" class="block py-2 px-4 text-sm hover:bg-gray-700">TEAM</a>
-             <a href="#company" class="block py-2 px-4 text-sm hover:bg-gray-700">COMPANY</a>
-             <a href="#clients" class="block py-2 px-4 text-sm hover:bg-gray-700">CLIENTS</a>
-             <a href="https://forms.gle/XDVPJZhcB9E4mGau6" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm hover:bg-gray-700">お問い合わせ</a>
-        </div>
-    </nav>
+    </a>
+    <!-- Fixed Apply Button -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSecoSuLOXHdjz_v2auwxrsrKf2n1m52T0d3_N1Rrz-eGP5wMw/viewform" target="_blank" rel="noopener noreferrer" class="register-button-fixed-square">
+        参加<br>申込
+    </a>
 
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <canvas id="bg-canvas"></canvas>
-        <div class="hero-content text-center px-4">
-            <h1 class="glitch text-5xl md:text-8xl" data-text="INVADERS">INVADERS</h1>
-            <p class="mt-4 text-lg md:text-xl font-light tracking-widest uppercase">この地球に住む宇宙人が集まる会社</p>
-            <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6">
-                <a href="https://forms.gle/XDVPJZhcB9E4mGau6" target="_blank" rel="noopener noreferrer" class="neon-btn">
-                    お問い合わせ
-                </a>
-                <a href="#" class="neon-btn neon-btn-secondary">
-                    資料ダウンロード
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            Scroll
-            <span></span>
-        </div>
+    <!-- Header Section -->
+    <header class="hero-section relative w-full aspect-video md:h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="hero-overlay"></div>
+        <div class="header-noise-overlay"></div>
+        <img src="https://akibavgate.kagekin.com/img/gateimg.png" alt="AKIBA VIRTUAL GATE Key Visual" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0 opacity-100">
+        <img src="https://akibavgate.kagekin.com/img/gateimg2.png" alt="AKIBA VIRTUAL GATE Key Visual 2" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0 opacity-0">
+        <img src="https://akibavgate.kagekin.com/img/gateimg3.png" alt="AKIBA VIRTUAL GATE Key Visual 3" class="gate-image absolute inset-0 w-full h-full object-contain object-center z-0 opacity-0">
     </header>
 
-    <main class="container mx-auto px-6 py-16 md:py-24 space-y-24 md:space-y-32">
+    <main class="pt-16 pb-12 md:py-20">
+        <div class="max-w-5xl mx-auto px-4">
 
-        <!-- Vision Section -->
-        <section id="vision" class="fade-in-up">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="section-title text-3xl md:text-4xl font-bold gradient-text">VISION</h2>
-                <h3 class="mt-4 text-2xl md:text-3xl font-bold">この地球に住む宇宙人が集まる会社</h3>
-                <p class="mt-8 text-base md:text-lg leading-relaxed text-gray-300">
-                    私たちは、常識や既存の枠組みに囚われず、未知の領域へ挑戦する人々を「地球に住む宇宙人」と捉えています。
-                    <br><br>
-                    そうした個性が集い、バーチャルとリアルの境界をなくし、テクノロジーによって「宇宙人」である私たちが住みやすいように、この世界を面白く作り変えていく（テラフォーミング）ことを目指します。
-                    <br><br>
-                    最終的なゴールは「テクノロジーで未来の居場所を作ること」です。
-                </p>
+            <!-- About Section -->
+            <section id="about" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">AKIBA V GATE</span>?</h2>
+                    <img src="https://akibavgate.kagekin.com/img/about-gate.jpg" alt="AKIBA V GATE Concept Image" class="w-full h-auto rounded-lg mb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <p class="text-base md:text-lg leading-relaxed mb-4">
+                            「AKIBA VIRTUAL GATE」は、透過型スクリーン“バーチャル・ゲート”を会場に設置し、現地の来場者とバーチャル出演者／メタバース住民をリアルタイムで接続する体験イベントです。
+                        </p>
+                        <p class="text-base md:text-lg leading-relaxed">
+                            VTuberライブ、AI・メタバース作品上映、遠隔出演などを、低コストでの再現性を重視した<span class="text-cyan-400 font-bold">公開実験</span>として開催。バーチャルがもっと身近になる未来の可能性を、ここ秋葉原で探ります。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Details -->
+            <section class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24" id="details-grid">
+                <div class="card p-6 rounded-xl text-center">
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">DATE</h3>
+                    <p class="text-xl sm:text-2d font-bold">2025.10.26 (Sun)<br>15:30 OPEN</p>
+                </div>
+                <div class="card p-6 rounded-xl text-center">
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">LOCATION</h3>
+                    <p class="text-xl sm:text-2xl font-bold">秋葉原 AiHUBオフィス</p>
+                </div>
+                <div class="card p-6 rounded-xl text-center">
+                    <h3 class="text-lg sm:text-xl font-orbitron font-bold text-cyan-400 mb-2">PRICE</h3>
+                    <p class="text-xl sm:text-2xl font-bold">入場無料</p>
+                </div>
+            </section>
+
+            <!-- Apply Button -->
+            <div class="apply-btn-wrapper text-center my-16">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSecoSuLOXHdjz_v2auwxrsrKf2n1m52T0d3_N1Rrz-eGP5wMw/viewform" target="_blank" rel="noopener noreferrer" class="register-button inline-block text-white font-bold font-orbitron text-xl py-4 px-10 rounded-full transition-transform duration-300">
+                    参加申込はこちら
+                </a>
+            </div>
+
+            <!-- Contents Section -->
+            <section id="contents" class="mb-16 md:mb-24">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">EVENT CONTENTS</h2>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-xl">
+                        <img src="https://akibavgate.kagekin.com/img/content-experience.jpg" alt="バーチャルゲート体験イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">バーチャルゲート体験</h3>
+                        <p>ポリッドスクリーンを通してVTuberやバーチャルアイドルとリアルタイムで交流！自分のアバターでイベントに参加できる体験ブースも設置予定。</p>
+                    </div>
+                    <div class="card p-6 rounded-xl">
+                        <img src="https://akibavgate.kagekin.com/img/content-screening.jpg" alt="映像作品上映会イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">映像作品上映会</h3>
+                        <p>AIやメタバース技術を駆使して制作された映像作品を公募し、大画面で上映。新進気鋭のクリエイターによる最先端の表現に触れるチャンス。</p>
+                    </div>
+                    <div class="card p-6 rounded-xl">
+                        <img src="https://akibavgate.kagekin.com/img/content-tech.jpg" alt="技術展示イメージ" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl sm:text-2xl font-orbitron font-bold text-cyan-400 mb-4">技術展示</h3>
+                        <p>本イベントの核となるポリッドスクリーンの技術紹介と実演。低コストでバーチャル存在を「召喚」するノウハウを間近で見ることができます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timetable Section -->
+            <section id="timetable" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-12 text-purple-400 neon-text">TIMETABLE</h2>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="border-l-2 border-purple-500/50 ml-4 pl-8 space-y-10">
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">15:30 🚪</p>
+                                <p class="mt-1 text-lg">開場</p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">16:00 🚀</p>
+                                <div class="mt-1 flex items-center gap-3">
+                                    <div class="flex -space-x-4">
+                                        <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="よしだ" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover z-10">
+                                        <img src="https://pbs.twimg.com/profile_images/1925594374014214148/FlRlsqGp_400x400.jpg" alt="ゆうぎり" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover">
+                                    </div>
+                                    <p class="text-lg">開幕 / オープニングパフォーマンス よしだAndゆうぎり</p>
+                                </div>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">16:10 🎤</p>
+                                <div class="mt-1 flex items-center gap-3">
+                                    <img src="https://akibavgate.kagekin.com/img/cast-furuga.png" alt="桜兎フルガ" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover">
+                                    <p class="text-lg">桜兎フルガ パフォーマンス！ <span class="text-sm text-gray-400">(20分)</span></p>
+                                </div>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">16:30 🎬</p>
+                                <p class="mt-1 text-lg">幕間 <span class="text-sm text-gray-400">(5分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">16:35 🎤</p>
+                                <div class="mt-1 flex items-center gap-3">
+                                    <img src="https://akibavgate.kagekin.com/img/cast-hagu.png" alt="桜葉ハグ" class="w-10 h-10 rounded-full border-2 border-purple-500 object-cover">
+                                    <p class="text-lg">桜葉ハグ パフォーマンス！ <span class="text-sm text-gray-400">(20分)</span></p>
+                                </div>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">16:55 ⏸️</p>
+                                <p class="mt-1 text-lg">休憩 <span class="text-sm text-gray-400">(5分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">17:00 🧑‍🚀</p>
+                                <p class="mt-1 text-lg">バーチャルゲスト出演枠 <span class="text-sm text-gray-400">(50分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">17:50 ⏸️</p>
+                                <p class="mt-1 text-lg">休憩 <span class="text-sm text-gray-400">(5分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-purple-900/50"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">18:00 🤝</p>
+                                <p class="mt-1 text-lg">Resonite ドアOPEN / 歓談タイム <span class="text-sm text-gray-400">(50分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">18:50 👋</p>
+                                <p class="mt-1 text-lg">エンディング・閉幕挨拶 <span class="text-sm text-gray-400">(10分)</span></p>
+                            </div>
+                            <!-- Timeline Entry -->
+                            <div class="timeline-item relative">
+                                <div class="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-purple-500"></div>
+                                <p class="font-orbitron font-bold text-cyan-400 text-xl">19:00 🏁</p>
+                                <p class="mt-1 text-lg">閉幕</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Cast Section -->
+        <section id="cast" class="mb-16 md:mb-24">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-6 text-purple-400 neon-text card max-w-5xl mx-auto px-4">CAST</h2>
+            <div id="cast-parallax-container" class="aspect-video md:h-screen">
+                <!-- Layers from back to front -->
+                <img id="cast06" src="https://akibavgate.kagekin.com/img/cast06.png" class="parallax-layer" style="z-index: 10;">
+                <img id="cast05" src="https://akibavgate.kagekin.com/img/cast05.png" class="parallax-layer" style="z-index: 20;">
+                <img id="cast03" src="https://akibavgate.kagekin.com/img/cast03.png" class="parallax-layer" style="z-index: 30;">
+                <img id="cast02" src="https://akibavgate.kagekin.com/img/cast02.png" class="parallax-layer" style="z-index: 40;">
+                <img id="cast04" src="https://akibavgate.kagekin.com/img/cast04.png" class="parallax-layer" style="z-index: 42;">
+                <img id="cast01" src="https://akibavgate.kagekin.com/img/cast01.png" class="parallax-layer" style="z-index: 44;">
+            </div>
+
+            <!-- Cast Details Section -->
+            <div class="main-cast-grid-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto px-4 mt-12">
+
+                <!-- Yoshida Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-yoshida.png" alt="バーチャルマンチカンよしだ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">バーチャルマンチカンよしだ</h3>
+                    <p class="text-sm leading-relaxed flex-grow">よしだはふわふわなねこだよ！<br>みんなとなかよくなりたいな！</p>
+                </div>
+
+                <!-- Yugiri Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-yugiri.png" alt="ゆうぎり" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">ゆうぎり</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">バーチャル花魁・よしだの保護者</p>
+                    <div class="flex gap-2 justify-center mt-auto">
+                        <a href="https://x.com/oiran_yugiri" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">X</a>
+                        <a href="https://www.youtube.com/@oiran_yugiri/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600/80 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">YouTube</a>
+                    </div>
+                </div>
+
+                <!-- Furuga Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-furuga.png" alt="桜兎フルガ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">桜兎フルガ</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">ﾄﾞｰﾑを目指す永遠の17歳ﾊﾞｰﾁｬﾙｱｲﾄﾞﾙ！</p>
+                    <div class="flex gap-2 justify-center mt-auto">
+                        <a href="https://x.com/oto_furuga" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">X</a>
+                        <a href="https://www.youtube.com/@otofuruga" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600/80 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">YouTube</a>
+                    </div>
+                </div>
+
+                <!-- Hagu Artist Profile -->
+                <div class="main-cast-card card p-6 rounded-xl text-center flex flex-col items-center">
+                    <img src="https://akibavgate.kagekin.com/img/cast-hagu.png" alt="桜葉ハグ" class="w-full h-auto rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-2">桜葉ハグ</h3>
+                    <p class="text-sm leading-relaxed mb-4 flex-grow">テレビ朝日公式Vtuber！</p>
+                    <div class="flex gap-2 justify-center mt-auto">
+                        <a href="https://x.com/sakuraba_hug" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600/50 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">X</a>
+                        <a href="https://www.youtube.com/@hugoodtime" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600/80 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full text-xs transition-colors">YouTube</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Business Section -->
-        <section id="business" class="fade-in-up">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center gradient-text">BUSINESS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <!-- Social Noba -->
-                <div class="glass-effect rounded-lg p-8 text-center transition-all duration-300 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20 transform hover:-translate-y-2">
-                    <div class="text-5xl mb-4">🌌</div>
-                    <h3 class="text-xl font-bold font-orbitron">Social Noba</h3>
-                    <p class="mt-2 text-sm text-gray-300">ソーシャルノバ</p>
-                    <p class="mt-4 text-gray-400">メタバースイベント & コミュニティ事業。仮想空間に新たな交流と文化の拠点を創造します。</p>
-                </div>
-
-                <!-- Digital Casting -->
-                <div class="glass-effect rounded-lg p-8 text-center transition-all duration-300 hover:border-green-400 hover:shadow-2xl hover:shadow-green-500/20 transform hover:-translate-y-2">
-                    <div class="text-5xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold font-orbitron">Digital Casting</h3>
-                    <p class="mt-2 text-sm text-gray-300">デジタルキャスティング</p>
-                    <p class="mt-4 text-gray-400">バーチャルタレント、バーチャルヒューマンのエージェント。デジタルの才能を世界へ。</p>
-                </div>
-                
-                <!-- Invaders Studio -->
-                <div class="glass-effect rounded-lg p-8 text-center transition-all duration-300 hover:border-fuchsia-400 hover:shadow-2xl hover:shadow-fuchsia-500/20 transform hover:-translate-y-2">
-                    <div class="text-5xl mb-4">👾</div>
-                    <h3 class="text-xl font-bold font-orbitron">Invaders Studio</h3>
-                    <p class="mt-2 text-sm text-gray-300">インベーダーズスタジオ</p>
-                    <p class="mt-4 text-gray-400">物語・ゲーム・出版・体験の創造。世界を面白く作り変えるコンテンツを生み出します。</p>
-                </div>
-            </div>
-        </section>
-
-<<<<<<< HEAD
-        <!-- Works Section -->
-        <section id="works" class="fade-in-up">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center gradient-text">WORKS</h2>
-            <p class="text-center text-gray-400 -mt-8">実績</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                
-                <!-- Work Item 1 (from socialnoba) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/01/070038ca83c7c054-1.png?resize=800%2C500&ssl=1" alt="バーチャル成人式 in Vket Cloud" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="p-6">
-                        <p class="text-sm text-cyan-400 mt-1">キャスティング</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">バーチャル成人式 in Vket Cloud</h3>
-                        <p class="mt-4 text-gray-400 text-sm">冠婚葬祭などを推進するバーチャルセレモニー事業部を設立</p>
-                    </div>
-                </div>
-                <!-- Work Item 2 (from socialnoba) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/01/28130e332980e23f5c6561d1ab82efeb.png?resize=800%2C500&ssl=1" alt="「六本木メタメタRADIO」" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-green-400 mt-1">スタッフ</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">「六本木メタメタRADIO」アフターイベント運営スタッフ</h3>
-                        <p class="mt-4 text-gray-400 text-sm">テレビ朝日様のイベント運営スタッフをキャスティング</p>
-                    </div>
-                </div>
-                <!-- Work Item 3 (from socialnoba) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2024/09/GO-7HX2b0AA4W6U.jpg?resize=800%2C500&ssl=1" alt="メタバース展示即売会「メタコミ」" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-fuchsia-400 mt-1">バーチャルイベント</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">メタバース展示即売会「メタコミ」</h3>
-                        <p class="mt-4 text-gray-400 text-sm">ワールド制作及びイベント企画を担当</p>
-                    </div>
-                </div>
-                <!-- Work Item 4 (from socialnoba) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2024/11/img01.png?resize=800%2C500&ssl=1" alt="テレビ朝日「メタメタ大作戦」" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-fuchsia-400 mt-1">バーチャルイベント</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">テレビ朝日「メタメタ大作戦」</h3>
-                        <p class="mt-4 text-gray-400 text-sm">イベント運営受託・キャスティング</p>
-                    </div>
-                </div>
-                <!-- Work Item 5 (from socialnoba) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2024/11/img02.png?resize=800%2C500&ssl=1" alt="バーチャルイベント「メタメタ大作戦」" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-cyan-400 mt-1">Discord活用</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">バーチャルイベント「メタメタ大作戦」</h3>
-                        <p class="mt-4 text-gray-400 text-sm">コミュニケーション活性施策をサポート</p>
-                    </div>
-                </div>
-                
-                <!-- Work Item 6 (NEW) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/06/20250525_222348.png?resize=800%2C500&ssl=1" alt="メタコミVol.3" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-fuchsia-400 mt-1">バーチャルイベント</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">メタコミVol.3</h3>
-                        <p class="mt-4 text-gray-400 text-sm">総来場者4,035人突破のメタバース展示会</p>
-=======
         <div class="max-w-5xl mx-auto px-4">
             <!-- Special Guest Section -->
             <section id="special-guest" class="mb-16 md:mb-24">
@@ -505,14 +609,14 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
                             </a>
                         </div>
-                        <!-- Guest 9: X_of_foX -->
+                        <!-- Guest 9: X of foX -->
                         <div class="tv-guest-card flex flex-col items-center">
                             <div class="tv-frame">
                                 <div class="tv-screen">
-                                    <img src="https://akibavgate.kagekin.com/img/xofx.png" alt="X_of_foX">
+                                    <img src="https://akibavgate.kagekin.com/img/xofx.png" alt="X of foX">
                                 </div>
                             </div>
-                            <p class="text-center mt-3 font-bold">X_of_foX</p>
+                            <p class="text-center mt-3 font-bold">X of foX</p>
                             <p class="text-center text-xs text-gray-400 mt-1 h-10">VTuber最古のVR&Real夫婦漫才コンビ</p>
                             <a href="https://x.com/kurokogin" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors mt-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
@@ -531,251 +635,295 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
                             </a>
                         </div>
->>>>>>> parent of 764e5ed (aaa)
                     </div>
                 </div>
+            </section>
 
-                <!-- Work Item 7 (NEW - Placeholder Image) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/04/20250415_141040.jpg?resize=800%2C500&ssl=1" alt="バーチャル広島駅" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-cyan-400 mt-1">Discord活用</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">バーチャル広島駅開幕祭</h3>
-                        <p class="mt-4 text-gray-400 text-sm">イベント活性化企画「応援団」のDiscord運営をサポート</p>
+            <!-- Public Call Section -->
+            <section id="public-call" class="mb-16 md:mb-24">
+                <div class="text-center">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-3 font-orbitron">Resoniteにて18:00からバーチャルゲートがオープン！</h3>
+                        <p class="text-lg mb-6">Resonite会場とリアル会場をポリッドスクリーン経由で繋いで遊びます！<br>ユーザー「ナオト」さんまでINするか、VirtualGateワールドまでお越しください！</p>
+                        <img src="https://akibavgate.kagekin.com/img/loop,Virtual GATE AKIBA,POPUP LOOP ANIME (2).png"
+                             alt="Resonite バーチャルゲート 説明"
+                             class="w-full h-auto rounded-lg"
+                             onerror="this.src='https://placehold.co/600x400/37306B/E0DFFF?text=Image+Not+Found'; this.onerror=null;">
                     </div>
                 </div>
-                
-                <!-- Work Item 8 (NEW) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/01/9d0c5216-9b34-4044-8881-2865edd7d3ac.png?resize=800%2C500&ssl=1" alt="アフタートークでしょでしょ!!" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-cyan-400 mt-1">キャスティング</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">アフタートークでしょでしょ!!</h3>
-                        <p class="mt-4 text-gray-400 text-sm">テレビ朝日様のイベント運営スタッフをキャスティング</p>
+            </section>
+
+            <!-- STAFF Section -->
+            <section id="staff" class="mb-16 md:mb-24">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-10 text-purple-400 neon-text card">制作スタッフ一覧</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                    <!-- KAGEKIN -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1905651963158835200/M06q-esr_400x400.jpg" alt="KAGEKIN" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">KAGEKIN</p>
+                        <a href="https://x.com/kgkn42" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- りこち -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1656945540184313858/68mAuetW_400x400.jpg" alt="りこち" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">りこち</p>
+                        <a href="https://x.com/RicochChester" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- うしくん -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1759177303157051392/SZAe49Vg_400x400.jpg" alt="うしくん" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">うしくん</p>
+                        <a href="https://x.com/Ushikun_desu" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- 利賀セイク -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1641824202352381953/zcI9LtCG_400x400.jpg" alt="利賀セイク" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">利賀セイク</p>
+                        <a href="https://x.com/sec_thugua" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- まみたす -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1960915901223723008/bRqp8lR3_400x400.jpg" alt="まみたす" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">まみたす</p>
+                        <a href="https://x.com/mmts_vliver" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- ナオト -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://pbs.twimg.com/profile_images/1595059320613666818/8sXOHHQR_400x400.jpg" alt="ナオト" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">ナオト</p>
+                        <a href="https://x.com/naoto_4179_" target="_blank" rel="noopener noreferrer" class="text-white hover:text-cyan-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.924L144.011 79.6902H306.615L611.412 515.685L658.88 583.589L1051.37 1150.31H888.766L569.165 687.854V687.828Z" /></svg>
+                        </a>
+                    </div>
+                    <!-- たまちゃん -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center">
+                        <img src="https://placehold.co/96x96/37306B/E0DFFF?text=No+Image" alt="たまちゃん" class="w-24 h-24 rounded-full mb-4 border-2 border-purple-500 object-cover">
+                        <p class="font-orbitron font-bold text-cyan-400 text-lg mb-2">たまちゃん</p>
+                    </div>
+                    <!-- and more -->
+                    <div class="card p-4 rounded-xl text-center flex flex-col items-center justify-center">
+                        <p class="font-orbitron font-bold text-gray-500 text-lg">and more...</p>
                     </div>
                 </div>
-                
-                <!-- Work Item 9 (NEW - Placeholder Image) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/09/20250907_160712-scaled.png?resize=800%2C500&ssl=1" alt="HIROSHIMA Digital Meet Up" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-cyan-400 mt-1">キャスティング</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">HIROSHIMA Digital Meet Up</h3>
-                        <p class="mt-4 text-gray-400 text-sm">イベントサポートスタッフのスタッフィング</p>
+            </section>
+
+            <!-- ACCESS / MAP Section -->
+            <section id="access" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400 neon-text">ACCESS / MAP</h2>
+                    <div class="text-center mb-8">
+                        <p class="text-xl md:text-2xl font-bold">会場: AiHUBオフィス</p>
+                        <p class="text-base md:text-lg mt-2">〒101-0041 東京都千代田区神田須田町２丁目１−１<br>Ma Square Akihabara, 4F</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border-2 border-purple-500 shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.245831911953!2d139.7712613152591!3d35.69557498019102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188fee43355555%3A0x8085a9d2b272583a!2sMA%2SQUARE%2OAKIHABARA!5e0!3m2!1sja!2sjp!4v1696105555123!5m2!1sja!2sjp"
+                                class="w-full h-80 md:h-96"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
+            </section>
 
-                <!-- Work Item 10 (NEW) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/09/eyecatch2.png?resize=800%2C500&ssl=1" alt="みんなのテクノロジーお披露目会" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-yellow-400 mt-1">リアルイベント</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">みんなのテクノロジーお披露目会</h3>
-                        <p class="mt-4 text-gray-400 text-sm">秋葉原での交流イベントを開催</p>
+            <!-- Polid Screen Section -->
+            <section id="polidscreen" class="mb-16 md:mb-24">
+                <div class="card p-6 md:p-10 rounded-xl">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-orbitron font-bold text-center mb-8 text-purple-400">WHAT IS <span class="neon-text">POLID SCREEN</span>?</h2>
+                    <img src="https://akibavgate.kagekin.com/img/about-polidscreen.jpg" alt="Polid Screen Technology" class="w-full h-auto rounded-lg mb-8">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <p class="text-base md:text-lg leading-relaxed">
+                            ポリッドスクリーンは、特殊な透明フィルムに映像を投影することで、まるでキャラクターがその場に実在するかのような立体的な映像を映し出すことができる技術です。本イベントではこの技術を使い、低コストでリアルとバーチャルが繋がる新しい体験の可能性を探ります。
+                        </p>
                     </div>
                 </div>
-
-                <!-- Work Item 11 (NEW) -->
-                <div class="glass-effect rounded-lg overflow-hidden group">
-                    <img src="https://i0.wp.com/socialnoba.work/wp-content/uploads/2025/10/4017ce0e6752b7e463cc8d7ea6be5d41-scaled.jpg?resize=800%2C500&ssl=1" alt="Localink （ローカリンク）" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                     <div class="p-6">
-                        <p class="text-sm text-yellow-400 mt-1">リアルイベント</p>
-                        <h3 class="text-xl font-bold font-orbitron mt-2">Localink （ローカリンク）</h3>
-                        <p class="mt-4 text-gray-400 text-sm">ノマドワーク×地方交通活用推進イベント企画・運営</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="fade-in-up">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center gradient-text">TEAM</h2>
-            <div class="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6 glass-effect rounded-lg">
-                    <img src="https://pbs.twimg.com/profile_images/1905651963158835200/M06q-esr_400x400.jpg" alt="[カゲキン氏のアイコン画像]" class="w-32 h-32 rounded-full mx-auto border-4 border-fuchsia-500 object-cover">
-                    <h3 class="mt-4 text-xl font-bold">カゲキン</h3>
-                    <p class="text-fuchsia-400 font-orbitron text-sm">CEO</p>
-                    <p class="mt-2 text-gray-400 text-sm">プロデューサー/クリエイティブプランナー</p>
-                </div>
-                <div class="text-center p-6 glass-effect rounded-lg">
-                    <img src="https://pbs.twimg.com/profile_images/1759177303157051392/SZAe49Vg_400x400.jpg" alt="[うしくん氏のアイコン画像]" class="w-32 h-32 rounded-full mx-auto border-4 border-green-500 object-cover">
-                    <h3 class="mt-4 text-xl font-bold">うしくん</h3>
-                    <p class="text-green-400 font-orbitron text-sm">CFO</p>
-                    <p class="mt-2 text-gray-400 text-sm">公認会計士/税理士</p>
-                </div>
-                <div class="text-center p-6 glass-effect rounded-lg">
-                    <img src="https://pbs.twimg.com/profile_images/1656945540184313858/68mAuetW_400x400.jpg" alt="[りこち氏のアイコン画像]" class="w-32 h-32 rounded-full mx-auto border-4 border-cyan-500 object-cover">
-                    <h3 class="mt-4 text-xl font-bold">りこち</h3>
-                    <p class="text-cyan-400 font-orbitron text-sm">COO</p>
-                    <p class="mt-2 text-gray-400 text-sm">エンジニア/コミュニティマネージャー</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Company Section -->
-        <section id="company" class="fade-in-up">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center gradient-text">COMPANY</h2>
-            <div class="max-w-3xl mx-auto mt-12 glass-effect rounded-lg p-8">
-                <table class="w-full text-left">
-                    <tbody class="divide-y divide-gray-700">
-                        <tr class="flex flex-col md:table-row py-2">
-                            <th class="py-2 font-semibold md:w-1/4">会社名</th>
-                            <td class="py-2 text-gray-300">株式会社インベーダーズ (INVADERS Inc.)</td>
-                        </tr>
-                        <tr class="flex flex-col md:table-row py-2">
-                            <th class="py-2 font-semibold md:w-1/4">設立</th>
-                            <td class="py-2 text-gray-300">2024年4月30日</td>
-                        </tr>
-                        <tr class="flex flex-col md:table-row py-2">
-                            <th class="py-2 font-semibold md:w-1/4">所在地</th>
-                            <td class="py-2 text-gray-300">〒101-0041<br>東京都千代田区神田須田町1丁目7番8号<br>VORT秋葉原Ⅳ2F</td>
-                        </tr>
-                         <tr class="flex flex-col md:table-row py-2">
-                            <th class="py-2 font-semibold md:w-1/4">役員</th>
-                            <td class="py-2 text-gray-300">
-                                代表取締役 大嶋隆也
-                            </td>
-                        </tr>
-                        <tr class="flex flex-col md:table-row py-2">
-                            <th class="py-2 font-semibold md:w-1/4">事業内容</th>
-                            <td class="py-2 text-gray-300">
-                                メタバース事業<br>
-                                バーチャルイベント事業<br>
-                                バーチャルタレント・エージェント事業<br>
-                                コンテンツ企画開発事業
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        
-        <!-- Clients Section -->
-        <section id="clients" class="fade-in-up">
-            <h2 class="section-title text-3xl md:text-4xl font-bold text-center gradient-text">CLIENTS</h2>
-             <p class="text-center text-gray-400 -mt-8">主要取引先</p>
-            <div class="max-w-3xl mx-auto mt-12 glass-effect rounded-lg p-8">
-                <ul class="text-lg md:text-xl text-center text-gray-300 space-y-4 font-orbitron">
-                    <li>株式会社HIKKY</li>
-                    <li>合同会社 withny</li>
-                    <li>株式会社テレビ朝日</li>
-                    <li>4DL Technologies株式会社</li>
-                </ul>
-            </div>
-        </section>
-
-    </main>
-    
-    <!-- Footer -->
-    <footer id="contact" class="border-t border-gray-800 mt-20 pt-16 pb-8">
-        <div class="container mx-auto px-6 text-center">
-            <!-- フッターにロゴを追加 -->
-            <div class="flex justify-center mb-8">
-                <img src="https://invaders.co.jp/logoslogan_v.png" alt="INVADERS Inc. Logo" class="h-24 w-auto opacity-80">
-            </div>
-            <h2 class="text-3xl font-bold font-orbitron gradient-text">CONTACT</h2>
-            <p class="mt-4 text-gray-300">未来の居場所を、共に作りませんか？<br>お仕事のご依頼、ご相談などお気軽にご連絡ください。</p>
-            <div class="mt-8">
-                <a href="https://forms.gle/XDVPJZhcB9E4mGau6" target="_blank" rel="noopener noreferrer" class="neon-btn">
-                   お問い合わせ
-                </a>
-            </div>
+            </section>
         </div>
-        <div class="container mx-auto px-6 pt-16 text-center text-gray-500">
-            <p class="text-sm">&copy; 2024 INVADERS Inc. All Rights Reserved.</p>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black bg-opacity-50 mt-16 md:mt-24">
+        <div class="max-w-5xl mx-auto text-center text-gray-400 px-4">
+            <p class="font-orbitron text-lg mb-2">AKIBA VIRTUAL GATE</p>
+            <p>主催: 株式会社インベーダーズ</p>
+            <p>協力: AiHUB株式会社</p>
+            <p class="mt-4 text-sm">&copy; 2025 AKBA VIRTUAL GATE Project. All rights reserved.</p>
         </div>
     </footer>
 
-<script>
-    // Animated background
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
 
-    function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    }
+            // --- Header Animation ---
+            gsap.from('.gate-image', {
+                duration: 2,
+                scale: 1.2,
+                opacity: 0,
+                filter: 'blur(20px)',
+                ease: 'power3.out',
+                stagger: 0.2
+            });
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 2 + 1;
-            this.color = `hsl(${Math.random() * 360}, 100%, 75%)`;
-        }
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-        }
-        draw() {
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function initParticles() {
-        particles = [];
-        const particleCount = Math.floor(width * height / 20000);
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animate);
-    }
-    
-    window.addEventListener('resize', () => {
-        resize();
-        initParticles();
-    });
-    
-    resize();
-    initParticles();
-    animate();
-
-    // Scroll Animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+            // --- New Header Image Crossfade ---
+            const headerImages = gsap.utils.toArray('.gate-image');
+            if (headerImages.length > 1) {
+                const tl = gsap.timeline({ repeat: -1 });
+                headerImages.forEach((image, index) => {
+                    const nextImage = headerImages[(index + 1) % headerImages.length];
+                    tl.to(image, { duration: 1.5, opacity: 0, delay: 5 }) // 現在のをフェードアウト
+                        .to(nextImage, { duration: 1.5, opacity: 1 }, "-=1.5"); // 次のをフェードイン
+                });
             }
+
+
+            // --- Scroll Animations for general Cards ---
+            const cards = gsap.utils.toArray('.card:not(.main-cast-card):not(.tv-guest-card):not(#timetable .card)');
+            cards.forEach(card => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                        }
+                    }
+                );
+            });
+
+            // --- Timetable Animation ---
+            const timetableCard = document.querySelector('#timetable .card');
+            gsap.fromTo(timetableCard,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: timetableCard,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                        onEnter: () => {
+                            gsap.fromTo('.timeline-item',
+                                { opacity: 0, x: -30 },
+                                {
+                                    opacity: 1,
+                                    x: 0,
+                                    duration: 0.5,
+                                    stagger: 0.1,
+                                    ease: 'power2.out'
+                                }
+                            );
+                        },
+                        once: true
+                    }
+                }
+            );
+
+            // --- Main Cast Animation ---
+            const mainCastCards = gsap.utils.toArray('.main-cast-card');
+            gsap.fromTo(mainCastCards,
+                { opacity: 0, y: 50, scale: 0.9 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '.main-cast-grid-container',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+            // --- Special Guest TV Animation ---
+            const tvCards = gsap.utils.toArray('.tv-guest-card');
+            gsap.fromTo(tvCards,
+                { opacity: 0, y: 50, scale: 0.9 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'back.out(1.4)',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '#special-guest',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+
+            // --- Combined Parallax for Cast Section ---
+            const parallaxContainer = document.getElementById('cast-parallax-container');
+            if (parallaxContainer) {
+                // 1. Mouse Move Parallax
+                parallaxContainer.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { offsetWidth, offsetHeight } = parallaxContainer;
+                    const x = (clientX / offsetWidth - 0.5) * 2;
+                    const y = (clientY / offsetHeight - 0.5) * 2;
+
+                    gsap.to('#cast01', { x: x * 60, y: y * 60, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast02', { x: x * 40, y: y * 40, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast03', { x: x * 30, y: y * 30, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast04', { x: x * 50, y: y * 50, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast05', { x: x * 20, y: y * 20, duration: 1, ease: 'power3.out' });
+                    gsap.to('#cast06', { x: x * 10, y: y * 10, duration: 1, ease: 'power3.out' });
+                });
+
+                // 2. Scroll Parallax
+                const layers = gsap.utils.toArray('.parallax-layer');
+                layers.forEach(layer => {
+                    // Use zIndex to determine the depth/speed. Higher zIndex moves more.
+                    const depth = parseInt(layer.style.zIndex || 1) / 10;
+                    const movement = -(depth * 5); // Adjust this value for more/less scroll effect
+
+                    gsap.to(layer, {
+                        yPercent: movement,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: parallaxContainer,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    });
+                });
+            }
+
+
+            // --- X Share Button ---
+            const shareButton = document.getElementById('x-share-button');
+            const shareText = 'リアル×バーチャル “実験型”ハイブリッド・ショーケース「AKIBA VIRTUAL GATE」2025.10.26 開催！ #AkibaVGate';
+            const shareUrl = 'https://akibavgate.kagekin.com/';
+            const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            shareButton.href = twitterIntentUrl;
         });
-    }, {
-        threshold: 0.1
-    });
-
-    const fadeElements = document.querySelectorAll('.fade-in-up');
-    fadeElements.forEach(el => observer.observe(el));
-
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('#menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.add('hidden');
-        });
-    });
-</script>
+    </script>
 
 </body>
 </html>
